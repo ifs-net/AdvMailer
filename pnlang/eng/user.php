@@ -1,7 +1,7 @@
 <?php
 /**
  * @package      advMailer
- * @version      $Id:  $
+ * @version      $Id$
  * @author       Florian Schießl
  * @link         http://www.ifs-net.de
  * @copyright    Copyright (C) 2009
@@ -13,7 +13,7 @@
  *
  * @copyright (c) 2001, Zikula Development Team
  * @link http://www.zikula.org
- * @version $Id:  $
+ * @version $Id$
  * @license GNU/GPL - http://www.gnu.org/copyleft/gpl.html
  * @package Zikula_System_Modules
  * @subpackage  Zikula_Mailer
