@@ -1,0 +1,43 @@
+<!--[*  $Id:  $  *]-->
+<!--[include file="advmailer_admin_menu.htm"]-->
+<!--[pnajaxheader nobehaviour=true noscriptaculous=true modname=advMailer filename=advmailer_admin_modifyconfig.js]-->
+<div class="pn-admincontainer">
+<div class="pn-adminpageicon"><!--[pnimg modname=core src=configure.gif set=icons/large alt='_MODIFYCONFIG' altml=true]--></div>
+<h2><!--[pnml name="_MODIFYCONFIG"]--></h2>
+<form class="pn-adminform" action="<!--[pnmodurl modname="advMailer" type="admin" func="updateconfig"]-->" method="post" enctype="application/x-www-form-urlencoded">
+<div>
+	<input type="hidden" name="authid" value="<!--[insert name="generateauthkey" module="advMailer"]-->" />
+    <fieldset>
+    <legend><!--[pnml name=_ADVMAILER_GENERALSETTINGS]--></legend>
+	<div class="pn-adminformrow">
+		<label for="mailer_queuetype"><!--[pnml name="_ADVMAILER_QUEUE_HANDLING"]--></label>
+		<select id="mailer_queuetype" name="queuetype"><!--[html_options options=$queuetypes selected=$queuetype]--></select>
+	</div>
+    </fieldset>
+
+    <fieldset id="mailer_queue_settings">
+    <legend><!--[pnml name=_ADVMAILER_QUEUE_SETTINGS]--></legend>
+    <!--[pnml name="_ADVMAILER_QUEUE_MODE_EXPLANATION"]-->
+	<div class="pn-adminformrow" id="mailer_queue_frequency">
+		<label for="mailer_queuefrequency"><!--[pnml name="_ADVMAILER_QUEUE_FREQUENCY"]--></label>
+		<input id="mailer_queuefrequency" name="queuefrequency" type="text" size="3" maxlength="3" value="<!--[$queuefrequency|pnvarprepfordisplay]-->" />
+	</div>
+	<div class="pn-adminformrow" id="mailer_queue_cronpwd">
+		<label for="mailer_queuecronpwd"><!--[pnml name="_ADVMAILER_QUEUE_CRON_PWD"]--><br /></label>
+		<input id="mailer_queuecronpwd" name="queuecronpwd" type="text" size="10" maxlength="10" value="<!--[$queuecronpwd|pnvarprepfordisplay]-->" />
+		<!--[if $queuecronpwd ne '']-->
+		  <!--[pnml name="_ADVMAILER_CRON_JOB_URL_CALL"]-->: <!--[pnmodurl fqurl="true" modname="advMailer" func="cron" pwd=$queuecronpwd]-->
+		<!--[else]-->
+		  <!--[pnml name="_ADVMAILER_NO_CRON_PWD_STORED_YET"]-->
+		<!--[/if]-->
+	</div>
+	</fieldset>
+
+    <!--[pnmodcallhooks hookobject=module hookaction=modifyconfig module=advMailer]-->
+    <div class="pn-adminformrow pn-adminformbuttons">
+    	<!--[pnbutton src=button_ok.gif set=icons/small alt="_UPDATECONFIG" title="_UPDATECONFIG"]-->
+        <a href="<!--[pnmodurl modname=advMailer type=admin]-->"><!--[pnimg modname=core src=button_cancel.gif set=icons/small altml=true titleml=true alt="_CANCEL" title="_CANCEL"]--></a>
+    </div>
+</div>
+</form>
+</div>

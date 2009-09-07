@@ -1,0 +1,87 @@
+<!--[*  $Id:  $  *]-->
+<!--[include file="advmailer_admin_menu.htm"]-->
+
+<div class="pn-admincontainer">
+<div class="pn-adminpageicon"><!--[pnimg modname=core src=configure.gif set=icons/large alt='_MODIFYCONFIG' altml=true]--></div>
+<h2><!--[pnml name="_ADVMAILER_QUEUE_ADMINISTRATION"]--> (<!--[pnml name="_ADVMAILER_QUEUE_COUNT"]-->: <!--[$queuecount]-->)</h2>
+
+<!--[if $mail.id gt 0]-->
+<fieldset>
+    <legend><!--[pnml name="_ADVMAILER_MAIL_VIEW"]--></legend>
+    <h3><!--[pnml name="_ADVMAILER_TAB_TITLE"]-->: <!--[extractmail mail=$mail.content item="subject"|pnvarprepfordisplay]--></h3>
+    <h3><!--[pnml name="_ADVMAILER_TAB_TO"]-->: <!--[extractmail mail=$mail.content item="toaddress"|pnvarprepfordisplay]--></h3>
+    <p>
+        <!--[showmail mail=$mail.content]-->
+    </p>
+</fieldset>
+<!--[/if]-->
+
+<p>
+<!--[pnml name="_ADVMAILER_QUEUE_EXPLANATION"]-->
+</p>
+
+<!--[if $queue|@count gt 0]-->
+
+<!--[pager class="advmailer_pager" show="page" rowcount=$queuecount limit=$numrows posvar=mailerpager shift=1]-->
+
+<table class="advmailer_table">
+    <tr>
+        <th><!--[pnml name="_ADVMAILER_TAB_NR"]--><br />
+        <a href="<!--[pnmodurl modname="advMailer" type="admin" func="queue" sortmode="1"]-->"><img class="advmailer_sortlink" src="system/Mailer/pnimages/up.gif" "/></a>
+        <a href="<!--[pnmodurl modname="advMailer" type="admin" func="queue" sortmode="2"]-->"><img class="advmailer_sortlink" src="system/Mailer/pnimages/down.gif" "/></a>
+        </th>
+        <th><!--[pnml name="_ADVMAILER_TAB_PRIORITY"]--><br />
+        <a href="<!--[pnmodurl modname="advMailer" type="admin" func="queue" sortmode="3"]-->"><img class="advmailer_sortlink" src="system/Mailer/pnimages/up.gif" "/></a>
+        <a href="<!--[pnmodurl modname="advMailer" type="admin" func="queue" sortmode="4"]-->"><img class="advmailer_sortlink" src="system/Mailer/pnimages/down.gif" "/></a>
+        </th>
+        <th><!--[pnml name="_ADVMAILER_TEMPLATES"]--><br />
+        <th><!--[pnml name="_ADVMAILER_TAB_TO"]--></th>
+        <th><!--[pnml name="_ADVMAILER_TAB_TITLE"]--></th>
+        <th><!--[pnml name="_ADVMAILER_TAB_DATE"]--><br />
+        <a href="<!--[pnmodurl modname="advMailer" type="admin" func="queue" sortmode="5"]-->"><img class="advmailer_sortlink" src="system/Mailer/pnimages/up.gif" "/></a>
+        <a href="<!--[pnmodurl modname="advMailer" type="admin" func="queue" sortmode="6"]-->"><img class="advmailer_sortlink" src="system/Mailer/pnimages/down.gif" "/></a>
+        </th>
+        <th><!--[pnml name="_ADVMAILER_TAB_STATUS"]--><br />
+        <a href="<!--[pnmodurl modname="advMailer" type="admin" func="queue" sortmode="7"]-->"><img class="advmailer_sortlink" src="system/Mailer/pnimages/up.gif" "/></a>
+        <a href="<!--[pnmodurl modname="advMailer" type="admin" func="queue" sortmode="8"]-->"><img class="advmailer_sortlink" src="system/Mailer/pnimages/down.gif" "/></a>
+        </th>
+        <th><!--[pnml name="_ADVMAILER_TAB_ACTION"]--></th>
+    </tr>
+<!--[foreach from=$queue item="item"]-->
+    <tr>
+        <td><!--[$item.id]--></td>
+        <td><!--[$item.priority]--></td>
+        <td>
+            <!--[templateusage mail=$item.content]-->
+        </td>
+        <td><!--[extractmail mail=$item.content item="toaddress"|pnvarprepfordisplay]--></td>
+        <td><a href="<!--[pnmodurl modname="advMailer" type="admin" func="queue" id=$item.id]-->"><!--[extractmail mail=$item.content item="subject"|pnvarprepfordisplay]--></a></td>
+        <td>
+            <!--[if $item.date eq '0000-00-00 00:00:00']-->
+                <!--[pnml name="_ADVMAILER_NOW"]-->
+            <!--[else]-->
+                <!--[$item.date]-->
+            <!--[/if]-->
+        </td>
+        <td class="advmailer_statuscell_<!--[$item.try]-->" >
+            <!--[mailstatus status=$item.try]-->
+        </td>
+        <td>
+            [
+            <a href="<!--[pnmodurl modname="advMailer" type="admin" func="queue" delete=$item.id authid=$authid]-->"><!--[pnml name="_ADVMAILER_DELETE"]--></a>
+            |
+            <a href="<!--[pnmodurl modname="advMailer" type="admin" func="queue" send=$item.id authid=$authid]-->"><!--[pnml name="_ADVMAILER_SEND_NOW"]--></a>
+            ]
+        </td>    
+    </tr>
+<!--[/foreach]-->
+</table>
+
+<!--[pager class="advmailer_pager" show="page" rowcount=$queuecount limit=$numrows posvar=mailerpager shift=1]-->
+<!--[else]-->
+<p>
+    <!--[pnml name="_ADVMAILER_QUEUE_EMPTY"]-->
+</p>
+<!--[/if]-->
+
+</div>
