@@ -23,16 +23,8 @@ function smarty_function_showmail($params, &$smarty)
     }
     $notemplates = (int) $mail['notemplates'];
     // return mail body
-    if ($mail['html'] == 1) {
-        $body = $mail['body'];
-        if ($notemplates != 1) {
-            $body = pnModAPIFunc('advMailer','admin','applyTemplate',array('content' => $body, 'type' => 'html'));
-        }
-    } else {
-        $body = $mail['body'];
-        if ($notemplates != 1) {
-            $body = pnModAPIFunc('advMailer','admin','applyTemplate',array('content' => $body, 'type' => 'text'));
-        }
+    $body = $mail['body'];
+    if ($mail['html'] != 1) {
         $body = '<pre style="font-family: Courier, Courier New;">'.$body.'</pre>';
     }
     return $body;
