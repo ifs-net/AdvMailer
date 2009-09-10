@@ -90,3 +90,5 @@ define('_ADVMAILER_TESTCONFIG', 'Test configuration');
 // general
 define('_ADVMAILER_GENERALSETTINGS', 'Advanced Mailer settings');
 define('_ADVMAILER_POWERED_BY', 'powered by');
+define('_ADVMAILER_DONATE', 'Donate and support my software development');
+define('_ADVMAILER_YOU_LIKE_IT','You like the module and it\'s usefull for you');
