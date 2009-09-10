@@ -98,3 +98,13 @@ function advMailer_userapi_systeminit()
     // Nothing to return - otherwise errors would be displayed for the actual user
     return;
 }
+
+/**
+ * Replace links in existing text and make real links of it
+ * @param   $args['text']       string      text to replace
+ * @return  string
+ */
+function advMailer_userapi_replaceLinks($args) {
+    $replacement = preg_replace('/([\w]+:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/i','<a href="'.urlencode("$1").'" rel="nofollow">$1</a>', $args['text']);
+    return $replacement;
+}
