@@ -11,7 +11,7 @@
 $modversion['name']           = 'advMailer';
 $modversion['displayname']    = 'advMailer';
 $modversion['description']    = 'Advanced Mailer management: This module gives more functionallity to the regular zikula Mailer module';
-$modversion['version']        = '1.0';
+$modversion['version']        = '1.1';
 $modversion['credits']        = 'pndocs/credits.txt';
 $modversion['help']           = 'pndocs/help.txt';
 $modversion['changelog']      = 'pndocs/changelog.txt';
