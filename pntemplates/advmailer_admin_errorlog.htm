@@ -2,14 +2,14 @@
 <!--[include file="advmailer_admin_menu.htm"]-->
 
 <div class="pn-admincontainer">
-<div class="pn-adminpageicon"><!--[pnimg modname=core src=configure.gif set=icons/large alt='_MODIFYCONFIG' altml=true]--></div>
-<h2><!--[pnml name="_ADVMAILER_ERROR_LOG_ADMINISTRATION"]--> (<!--[pnml name="_ADVMAILER_FOLDER_COUNT"]-->: <!--[$queuecount]-->)</h2>
+<div class="pn-adminpageicon"><!--[pnimg modname='core' src='configure.gif' set='icons/large' __alt='Settings' ]--></div>
+<h2><!--[gt text="Mail error log view and administration"]--> (<!--[gt text="failed deliveries"]-->: <!--[$queuecount]-->)</h2>
 
 <!--[if $mail.id gt 0]-->
 <fieldset>
-    <legend><!--[pnml name="_ADVMAILER_MAIL_VIEW"]--></legend>
-    <h3><!--[pnml name="_ADVMAILER_TAB_TITLE"]-->: <!--[extractmail mail=$mail.content item="subject"|pnvarprepfordisplay]--></h3>
-    <h3><!--[pnml name="_ADVMAILER_TAB_TO"]-->: <!--[extractmail mail=$mail.content item="toaddress"|pnvarprepfordisplay]--></h3>
+    <legend><!--[gt text="Mail content"]--></legend>
+    <h3><!--[gt text="mail subject"]-->: <!--[extractmail mail=$mail.content item="subject"|pnvarprepfordisplay]--></h3>
+    <h3><!--[gt text="recipient"]-->: <!--[extractmail mail=$mail.content item="toaddress"|pnvarprepfordisplay]--></h3>
     <p>
         <!--[showmail mail=$mail.content]-->
     </p>
@@ -18,8 +18,8 @@
 
 <!--[if $queuecount gt 0]-->
     <ul>
-        <img src="images/icons/extrasmall/agt_reload.gif" /> <a href="<!--[pnmodurl modname="advMailer" type="admin" func="errorlog" action="ra" authid=$authid]-->"><!--[pnml name="_ADVMAILER_REQUEUE_ALL"]--></a><br />
-        <img src="images/icons/extrasmall/agt_stop.gif" /> <a href="<!--[pnmodurl modname="advMailer" type="admin" func="errorlog" action="da" authid=$authid]-->" onclick="return confirm('<!--[pnml name="_ADVMAILER_REALLY_DELETE_ALL"]-->');" ><!--[pnml name="_ADVMAILER_DELETE_ALL"]--></a>
+        <img src="images/icons/extrasmall/agt_reload.gif" /> <a href="<!--[pnmodurl modname="advMailer" type="admin" func="errorlog" action="ra" authid=$authid]-->"><!--[gt text="Requeue all mails"]--></a><br />
+        <img src="images/icons/extrasmall/agt_stop.gif" /> <a href="<!--[pnmodurl modname="advMailer" type="admin" func="errorlog" action="da" authid=$authid]-->" onclick="return confirm('<!--[gt text="Please confirm the deletion of all mails of the error log"]-->');" ><!--[gt text="Delete the error log"]--></a>
     </ul>
 <!--[/if]-->
 
@@ -29,17 +29,17 @@
 
 <table class="advmailer_table">
     <tr>
-        <th><!--[pnml name="_ADVMAILER_TAB_NR"]--><br />
+        <th><!--[gt text="Mail ID"]--><br />
         <a href="<!--[pnmodurl modname="advMailer" type="admin" func="errorlog" sortmode="1"]-->"><img class="advmailer_sortlink" src="system/Mailer/pnimages/up.gif" "/></a>
         <a href="<!--[pnmodurl modname="advMailer" type="admin" func="errorlog" sortmode="2"]-->"><img class="advmailer_sortlink" src="system/Mailer/pnimages/down.gif" "/></a>
         </th>
-        <th><!--[pnml name="_ADVMAILER_TAB_TO"]--></th>
-        <th><!--[pnml name="_ADVMAILER_TAB_TITLE"]--></th>
-        <th><!--[pnml name="_ADVMAILER_TAB_FAIL_DATE"]--><br />
+        <th><!--[gt text="recipient"]--></th>
+        <th><!--[gt text="mail subject"]--></th>
+        <th><!--[gt text="date of last try"]--><br />
         <a href="<!--[pnmodurl modname="advMailer" type="admin" func="errorlog" sortmode="5"]-->"><img class="advmailer_sortlink" src="system/Mailer/pnimages/up.gif" "/></a>
         <a href="<!--[pnmodurl modname="advMailer" type="admin" func="errorlog" sortmode="6"]-->"><img class="advmailer_sortlink" src="system/Mailer/pnimages/down.gif" "/></a>
         </th>
-        <th><!--[pnml name="_ADVMAILER_TAB_ACTION"]--></th>
+        <th><!--[gt text="action"]--></th>
     </tr>
 <!--[foreach from=$queue item="item"]-->
     <tr>
@@ -49,9 +49,9 @@
         <td><!--[$item.date]--></td>
         <td>
             [
-            <a href="<!--[pnmodurl modname="advMailer" type="admin" func="errorlog" delete=$item.id authid=$authid]-->"><!--[pnml name="_ADVMAILER_DELETE"]--></a>
+            <a href="<!--[pnmodurl modname="advMailer" type="admin" func="errorlog" delete=$item.id authid=$authid]-->"><!--[gt text="delete"]--></a>
             |
-            <a href="<!--[pnmodurl modname="advMailer" type="admin" func="errorlog" requeue=$item.id authid=$authid]-->"><!--[pnml name="_ADVMAILER_REQUEUE"]--></a>
+            <a href="<!--[pnmodurl modname="advMailer" type="admin" func="errorlog" requeue=$item.id authid=$authid]-->"><!--[gt text="requeue"]--></a>
             ]
         </td>    
     </tr>
@@ -61,7 +61,7 @@
 <!--[pager class="advmailer_pager" show="page" rowcount=$queuecount limit=$numrows posvar=mailerpager shift=1]-->
 <!--[else]-->
 <p>
-    <!--[pnml name="_ADVMAILER_ERRORLOG_EMPTY"]-->
+    <!--[gt text="No mails stored in the error logfile"]-->
 </p>
 <!--[/if]-->
 

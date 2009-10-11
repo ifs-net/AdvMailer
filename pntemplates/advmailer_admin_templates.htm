@@ -2,39 +2,39 @@
 <!--[include file="advmailer_admin_menu.htm"]-->
 <!--[pnajaxheader nobehaviour=true noscriptaculous=true modname=Mailer filename=mailer_admin_modifyconfig.js]-->
 <div class="pn-admincontainer">
-<div class="pn-adminpageicon"><!--[pnimg modname=core src=configure.gif set=icons/large alt='_MODIFYCONFIG' altml=true]--></div>
-<h2><!--[pnml name="_ADVMAILER_TEMPLATES"]--></h2>
+<div class="pn-adminpageicon"><!--[pnimg modname='core' src='configure.gif' set='icons/large' __alt='Settings' ]--></div>
+<h2><!--[gt text="Templates"]--></h2>
 <p>
-    <!--[pnml name="_ADVMAILER_TEMPLATE_EXPLANATION"]-->:
+    <!--[gt text="You can create templates for all emails that will be sent out that are customized for your site. There are two types of emails going out: HTML and plain text. There are some example templates in the Mailer's template folder. There are four templates - two for HTML and two for plain text mails. Always the right template is chosen - depending on the mail type. The templates have to be named the following way"]-->:
     <ul>
-        <li>advmailer_text_header.htm (<!--[pnml name="_ADVMAILER_TPL_HEADER_TEXT"]-->)</li>
-        <li>advmailer_text_footer.htm (<!--[pnml name="_ADVMAILER_TPL_FOOTER_TEXT"]-->)</li>
-        <li>advmailer_html_header.htm (<!--[pnml name="_ADVMAILER_TPL_HEADER_HTML"]-->)</li>
-        <li>advmailer_html_footer.htm (<!--[pnml name="_ADVMAILER_TPL_FOOTER_HTML"]-->)</li>
+        <li>advmailer_text_header.htm (<!--[gt text="Header for plain text mails"]-->)</li>
+        <li>advmailer_text_footer.htm (<!--[gt text="Footer for plain text mails"]-->)</li>
+        <li>advmailer_html_header.htm (<!--[gt text="Header for HTML mails"]-->)</li>
+        <li>advmailer_html_footer.htm (<!--[gt text="Footer for HTML mails"]-->)</li>
     </ul>
 </p>
 <p>
-    <!--[pnml name="_ADVMAILER_DEV_OVERRIDE_OPTION"]-->
+    <!--[gt text="Module developers can override the usage of these templates - if you are a developer, please read the function's documentation! Pleas also mention that template changes will not affect all mails that are already in the mail queue and waiting for delivery!"]-->
 </p>
 
-<h2><!--[pnml name="_ADVMAILER_TEMPLATES_PREVIEW"]--></h2>
-<p><!--[pnml name="_ADVMAILER_TPL_USAGE_HINTS"]--></p>
+<h2><!--[gt text="Preview"]--></h2>
+<p><!--[gt text="Please use theme based template overriding and clear your rendering cache after changing the templates. The templates will be used as they are seen below."]--></p>
 
-<h2><!--[pnml name="_ADVMAILER_TEMPLATES_TEXT_PREVIEW"]--></h2>
+<h2><!--[gt text="Preview for plain text mails"]--></h2>
 <!--[if $text_preview ne '']-->
     <div class="mailer_plaintext">
     <!--[$text_preview|pnvarprepfordisplay|nl2br]-->
     </div>
 <!--[else]-->
-    <p><!--[pnml name="_ADVMAILER_NO_TPL_FOUND"]--></p>
+    <p><!--[gt text="No templates found"]--></p>
 <!--[/if]-->
-<p><!--[pnml name="_ADVMAILER_TPL_TEXT_LINEBREAKS_HINT"]--></p>
-<h2><!--[pnml name="_ADVMAILER_TEMPLATES_HTML_PREVIEW"]--></h2>
+<p><!--[gt text="Depending on your personal site mailer configuration linebreaks will be added before sending the email. These linebreaks can not be seen here - please send a test email to an own email account for testing this."]--></p>
+<h2><!--[gt text="Preview for html mails"]--></h2>
 <!--[if $html_preview ne '']-->
         <iframe src="<!--[pnmodurl modname="advMailer" type="admin" func="templates" html="1"]-->" width="100%" height="500" name="HTML_PREVIEW">
             Please update your browser software. Your software is outdated or does not support IFRAMES.
         </iframe>
 <!--[else]-->
-    <p><!--[pnml name="_ADVMAILER_NO_TPL_FOUND"]--></p>
+    <p><!--[gt text="No templates found"]--></p>
 <!--[/if]-->
 </div>
