@@ -2,7 +2,7 @@
 /**
  * @package      advMailer
  * @version      $Id$
- * @author       Florian Schießl
+ * @author       Florian SchieÃŸl
  * @link         http://www.ifs-net.de
  * @copyright    Copyright (C) 2009
  * @license      http://www.gnu.org/copyleft/gpl.html GNU General Public License
@@ -11,20 +11,21 @@
 /**
  * get available admin panel links
  *
- * @author Florian Schießl
+ * @author Florian SchieÃŸl
  * @return array array of admin links
  */
 function advMailer_adminapi_getlinks()
 {
+    $dom = ZLanguage::getModuleDomain('advMailer');
     $links = array();
     pnModLangLoad('advMailer', 'admin');
     if (SecurityUtil::checkPermission('advMailer::', '::', ACCESS_ADMIN)) {
-        $links[] = array('url' => pnModURL('advMailer', 'admin', 'modifyconfig'), 'text' => _MODIFYCONFIG);
-        $links[] = array('url' => pnModURL('advMailer', 'admin', 'templates'), 'text' => _ADVMAILER_TEMPLATES);
-        $links[] = array('url' => pnModURL('advMailer', 'admin', 'queue'), 'text' => _ADVMAILER_MAILQUEUE);
-        $links[] = array('url' => pnModURL('advMailer', 'admin', 'errorlog'), 'text' => _ADVMAILER_ERRORLOG);
-        $links[] = array('url' => pnModURL('Mailer',    'admin', 'testconfig'), 'text' => _ADVMAILER_TESTCONFIG.' (Mailer)');
-        $links[] = array('url' => pnModURL('Mailer', 'admin', 'modifyconfig'), 'text' => _MODIFYCONFIG.' (Mailer)');
+        $links[] = array('url' => pnModURL('advMailer', 'admin', 'modifyconfig'), 'text' => __('Settings', $dom));
+        $links[] = array('url' => pnModURL('advMailer', 'admin', 'templates'), 'text' => __('Templates', $dom));
+        $links[] = array('url' => pnModURL('advMailer', 'admin', 'queue'), 'text' => __('Mail-Queue', $dom));
+        $links[] = array('url' => pnModURL('advMailer', 'admin', 'errorlog'), 'text' => __('Error-log', $dom));
+        $links[] = array('url' => pnModURL('Mailer',    'admin', 'testconfig'), 'text' => __('Test configuration', $dom).' (Mailer)');
+        $links[] = array('url' => pnModURL('Mailer', 'admin', 'modifyconfig'), 'text' => __('Settings', $dom).' (Mailer)');
     }
     return $links;
 }
@@ -140,6 +141,7 @@ function advMailer_adminapi_getErrorLog($args)
  */
 function advMailer_adminapi_sendQueue($args)
 {
+    $dom = ZLanguage::getModuleDomain('advMailer');
     // Get Parameters
     $id     = (int) $args['id'];
     $quiet  = (int) $args['quiet'];
@@ -167,7 +169,7 @@ function advMailer_adminapi_sendQueue($args)
                         $result = DBUtil::deleteObject($mail,'advmailer_queue');
                         if (!$quietmode && !$result) {
                             pnModLangLoad('Mailer', 'admin');
-                            LogUtil::registerError(_ADVMAILER_MESSAGE_MOVED_ERROR_LOG);
+                            LogUtil::registerError(__('Message was moved to error log - delivery cancelled', $dom));
                         }
                         return false;
                     }

@@ -2,7 +2,7 @@
 /**
  * @package      advMailer
  * @version      $Id$
- * @author       Florian Schießl
+ * @author       Florian SchieÃŸl
  * @link         http://www.ifs-net.de
  * @copyright    Copyright (C) 2009
  * @license      http://www.gnu.org/copyleft/gpl.html GNU General Public License
@@ -11,14 +11,15 @@
 /**
  * initialise the module
  *
- * @author Florian Schießl
+ * @author Florian SchieÃŸl
  * @return bool true if successful, false otherwise
  */
 function advMailer_init()
 {
+    $dom = ZLanguage::getModuleDomain('advMailer');
 	// install system init hook
     if (!pnModRegisterHook('zikula', 'systeminit', 'API', 'advMailer', 'user', 'systeminit')) {
-        LogUtil::registerError(_ERRORCREATINGHOOK);
+        LogUtil::registerError(__('Error creating hook', $dom));
         return false;
     }
 
@@ -35,7 +36,7 @@ function advMailer_init()
 
 	// Create indexes
     if (!DBUtil::createIndex('priorityindex', 'advmailer_queue', array('priority'))) {
-        LogUtil::registerError(_CREATEINDEXFAILED);
+        LogUtil::registerError(__('Error! Index creation failed.', $dom));
         return false;
     }
 
@@ -52,7 +53,7 @@ function advMailer_init()
 /**
  * upgrade the module from an old version
  *
- * @author Florian Schießl
+ * @author Florian SchieÃŸl
  * @param int $oldversion version to upgrade from
  * @return bool true if successful, false otherwise
  */
@@ -70,11 +71,12 @@ function advMailer_upgrade($oldversion)
 /**
  * delete the module
   *
- * @author Florian Schießl
+ * @author Florian SchieÃŸl
  * @return bool true if successful, false otherwise
  */
 function advMailer_delete()
 {
+    $dom = ZLanguage::getModuleDomain('advMailer');
     // delete the system init hook
     $oldqueuetype = (int) pnModGetVar('advMailer','queuetype');
     if ($oldqueuetype == 3) {
@@ -82,7 +84,7 @@ function advMailer_delete()
         pnModAPIFunc('Modules', 'admin', 'disablehooks', array('callermodname' => 'zikula', 'hookmodname' => 'advMailer'));
     }
     if (!pnModUnregisterHook('zikula', 'systeminit', 'API', 'advMailer', 'user', 'systeminit')) {
-        LogUtil::registerError(_ERRORDELETINGHOOK);
+        LogUtil::registerError(__('Error deleting hook', $dom));
         return false;
     }
     // Delete tables

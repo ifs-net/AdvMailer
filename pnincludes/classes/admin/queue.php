@@ -2,7 +2,7 @@
 /**
  * @package      advMailer
  * @version      $Id$
- * @author       Florian Schießl
+ * @author       Florian SchieÃŸl
  * @link         http://www.ifs-net.de
  * @copyright    Copyright (C) 2009
  * @license      http://www.gnu.org/copyleft/gpl.html GNU General Public License
@@ -10,18 +10,19 @@
 
 /**
  * mail queue management handler class
- * @author Florian Schießl
+ * @author Florian SchieÃŸl
  */
 
 class advmailer_queueHandler
 {
     function initialize(&$render)
     {
+        $dom = ZLanguage::getModuleDomain('advMailer');
         // security check
         if (!SecurityUtil::checkPermission('advMailer::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError();
         }
-        
+
         // Is there an action to be done?
         // Should a mail be deleted and removed from the queue?
         $delete = (int) FormUtil::getPassedValue('delete');
@@ -32,31 +33,31 @@ class advmailer_queueHandler
             } else {
                 $obj = DBUtil::selectObjectByID('advmailer_queue',$delete);
                 if (!$obj) {
-                    LogUtil::registerError(_ADVMAILER_MAIL_LOAD_ERROR);
+                    LogUtil::registerError(__('An error occured - the mail could not be loaded. Maybe it was delivered or moved to error logfile in the time between creating the last overview and your action.', $dom));
                 } else {
                     $result = DBUtil::deleteObject($obj,'advmailer_queue');
                     if ($result) {
-                        LogUtil::registerStatus(_ADVMAILER_MAIL_DELETED);
+                        LogUtil::registerStatus(__('The mail was successfully removed and deleted from the mail queue', $dom));
                     } else {
-                        LogUtil::registerError(_ADVMAILER_MAIL_LOAD_ERROR);
+                        LogUtil::registerError(__('An error occured - the mail could not be loaded. Maybe it was delivered or moved to error logfile in the time between creating the last overview and your action.', $dom));
                     }
                 }
             }
    		  	return $render->pnFormRedirect(pnModURL('advMailer','admin','queue'));
         }
-        
+
         // Should a mail be displayed?
         $id = (int) FormUtil::getPassedValue('id');
         if ($id > 0) {
             $result = DBUtil::selectObjectByID('advmailer_queue',$id);
             if (!$result) {
-                LogUtil::registerError(_ADVMAILER_MAIL_LOAD_ERROR);
+                LogUtil::registerError(__('An error occured - the mail could not be loaded. Maybe it was delivered or moved to error logfile in the time between creating the last overview and your action.', $dom));
        		  	return $render->pnFormRedirect(pnModURL('advMailer','admin','queue'));
             } else {
                 $render->assign('mail', $result);
             }
         }
-        
+
         // Should a mail be sent manually
         $send = (int) FormUtil::getPassedValue('send');
         if ($send > 0) {
@@ -65,14 +66,14 @@ class advmailer_queueHandler
             } else {
                 $result = pnModAPIFunc('advMailer','admin','sendQueue',array('id' => $send));
                 if (!$result) {
-                    LogUtil::registerError(_ADVMAILER_SEND_ERROR);
+                    LogUtil::registerError(__('An error occured while trying to send the selected email manualy', $dom));
                 } else {
-                    LogUtil::registerStatus(_ADVMAILER_MAIL_SENT);
+                    LogUtil::registerStatus(__('The email was sent successfully and removed from the mail queue', $dom));
                 }
             }
             return $render->pnFormRedirect(pnModURL('advMailer','admin','queue'));
         }
-        
+
         // Get mail queue and parameters
         $mailerpager = (int) FormUtil::getPassedValue('mailerpager');
         if ($mailerpager > 0) {

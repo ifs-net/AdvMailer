@@ -2,7 +2,7 @@
 /**
  * @package      advMailer
  * @version      $Id$
- * @author       Florian Schießl
+ * @author       Florian SchieÃŸl
  * @link         http://www.ifs-net.de
  * @copyright    Copyright (C) 2009
  * @license      http://www.gnu.org/copyleft/gpl.html GNU General Public License
@@ -10,18 +10,19 @@
 
 /**
  * mail queue (error logfile) management handler class
- * @author Florian Schießl
+ * @author Florian SchieÃŸl
  */
 
 class advMailer_errorlogHandler
 {
     function initialize(&$render)
     {
+        $dom = ZLanguage::getModuleDomain('advMailer');
         // security check
         if (!SecurityUtil::checkPermission('advMailer::', '::', ACCESS_ADMIN)) {
             return LogUtil::registerPermissionError();
         }
-        
+
         // Is there an action to be done?
         // Should a mail be deleted and removed from the queue?
         $delete = (int) FormUtil::getPassedValue('delete');
@@ -44,7 +45,7 @@ class advMailer_errorlogHandler
             }
    		  	return $render->pnFormRedirect(pnModURL('advMailer','admin','errorlog'));
         }
-        
+
         // Should a mail be displayed?
         $id = (int) FormUtil::getPassedValue('id');
         if ($id > 0) {
@@ -56,7 +57,7 @@ class advMailer_errorlogHandler
                 $render->assign('mail', $result);
             }
         }
-        
+
         // Should a mail be requeued for sending?
         $requeue = (int) FormUtil::getPassedValue('requeue');
         if ($requeue > 0) {
@@ -91,7 +92,7 @@ class advMailer_errorlogHandler
                 } else {
                     LogUtil::registerStatus($c.' '._MAILER_REQUEUE_SECCESSFUL);
                 }
-            }            
+            }
             return $render->pnFormRedirect(pnModURL('advMailer','admin','errorlog'));
         }
         // Delete error log
@@ -105,10 +106,10 @@ class advMailer_errorlogHandler
                 } else {
                     LogUtil::registerError(_MAILER_ERROR_LOG_DELETION_ERROR);
                 }
-            }            
+            }
             return $render->pnFormRedirect(pnModURL('advMailer','admin','errorlog'));
         }
-        
+
         // Get mail queue and parameters
         $mailerpager = (int) FormUtil::getPassedValue('mailerpager');
         if ($mailerpager > 0) {
