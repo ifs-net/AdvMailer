@@ -2,7 +2,7 @@
 /**
  * @package      advMailer
  * @version      $Id$
- * @author       Florian Schießl
+ * @author       Florian SchieÃŸl
  * @link         http://www.ifs-net.de
  * @copyright    Copyright (C) 2009
  * @license      http://www.gnu.org/copyleft/gpl.html GNU General Public License
@@ -13,15 +13,16 @@
  * This function can be called by cronjob url services and
  * will send X mails that are in the mail queue.
  *
- * @author Florian Schießl
+ * @author Florian SchieÃŸl
  * @return string
  */
 function advMailer_user_cron()
 {
+    $dom = ZLanguage::getModuleDomain('advMailer');
     // cron enabled?
     $queuetype = pnModGetVar('advMailer','queuetype');
     if ($queuetype != 2) {
-        print _ADVMAILER_CRON_DISABLED;
+        print __('Cron disabled', $dom);
         return true;
     }
     // security check
@@ -34,21 +35,21 @@ function advMailer_user_cron()
         $queuefrequency = (int)pnModGetVar('advMailer','queuefrequency');
         $queue = pnModAPIFunc('advMailer','admin','getQueue',array('sortmode' => 4, 'numrows' => $queuefrequency, 'skipfuture' => 1));
         if (!$queue) {
-            echo _ADVMAILER_NO_MAILS_IN_QUEUE;
+            echo __('No mails in the queue', $dom);
         } else {
             $count = count($queue);
             // Send mail from queue
             foreach ($queue as $item) {
                 $result = pnModAPIFunc('advMailer','admin','sendQueue',array('id' => $item['id']));
                 if ($result) {
-                    print _ADVMAILER_SENT_ID.': ['.$item['id'].' ('.($item['try']+1).')]';
+                    print __('Send ID', $dom).': ['.$item['id'].' ('.($item['try']+1).')]';
                 } else {
-                    print _ADVMAILER_SENT_ERROR_ID.': ['.$item['id'].'('.($item['try']+1).')]';
+                    print __('Sent Error ID', $dom).': ['.$item['id'].'('.($item['try']+1).')]';
                 }
             }
         }
     } else {
-        print _ADVMAILER_CRONJOB_WRONG_PWD;
+        print __('Wrong password', $dom);
     }
     return true;
 }

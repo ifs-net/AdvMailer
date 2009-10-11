@@ -2,16 +2,16 @@
 /**
  * @package      advMailer
  * @version      $Id$
- * @author       Florian Schießl
+ * @author       Florian SchieÃŸl
  * @link         http://www.ifs-net.de
  * @copyright    Copyright (C) 2009
  * @license      http://www.gnu.org/copyleft/gpl.html GNU General Public License
  */
- 
+
 /**
  * the main administration function
  *
- * @author Florian Schießl
+ * @author Florian SchieÃŸl
  * @return string output
  */
 function advMailer_admin_main()
@@ -30,19 +30,20 @@ function advMailer_admin_main()
 /**
  * This function shows a preview and some more information about
  * the advMailer templates for this zikula installation
- * @author Florian Schießl
+ * @author Florian SchieÃŸl
  * @return string output
  */
 function advMailer_admin_templates()
 {
+    $dom = ZLanguage::getModuleDomain('advMailer');
     // security check
     if (!SecurityUtil::checkPermission('advMailer::', '::', ACCESS_EDIT)) {
         return LogUtil::registerPermissionError();
     }
 
     // get html template
-    $html_preview = pnModAPIFunc('advMailer','admin','applyTemplate',array('content' => _ADVMAILER_TPL_HTML_EXAMPLE, 'type' => 'html'));
-    $text_preview = pnModAPIFunc('advMailer','admin','applyTemplate',array('content' => _ADVMAILER_TPL_TEXT_EXAMPLE, 'type' => 'text'));
+    $html_preview = pnModAPIFunc('advMailer','admin','applyTemplate',array('content' => __('This is <font color="red">some default text</font> that will be <b>replaced</b> by your <i>email\'s content</i> later whenever a mail is being sent out!<hr />Have fun! ;-)', $dom), 'type' => 'html'));
+    $text_preview = pnModAPIFunc('advMailer','admin','applyTemplate',array('content' => __('This is some default text that will be replaced by your email\'s content later whenever a mail is being sent out!', $dom), 'type' => 'text'));
     $text_preview = str_replace('<','&lt;',$text_preview);
     $text_preview = str_replace('>','&gt;',$text_preview);
 
@@ -66,7 +67,7 @@ function advMailer_admin_templates()
 /**
  * the mail queue management function
  *
- * @author      Florian Schießl
+ * @author      Florian SchieÃŸl
  * @return      output
  */
 function advMailer_admin_queue()
@@ -84,7 +85,7 @@ function advMailer_admin_queue()
 /**
  * the mail queue management function
  *
- * @author      Florian Schießl
+ * @author      Florian SchieÃŸl
  * @return      output
  */
 function advMailer_admin_errorlog()
@@ -102,11 +103,12 @@ function advMailer_admin_errorlog()
 /**
  * This is a standard function to modify the configuration parameters of the
  * module
- * @author Florian Schießl
+ * @author Florian SchieÃŸl
  * @return string HTML string
  */
 function advMailer_admin_modifyconfig()
 {
+    $dom = ZLanguage::getModuleDomain('advMailer');
     // security check
     if (!SecurityUtil::checkPermission('advMailer::', '::', ACCESS_ADMIN)) {
         return LogUtil::registerPermissionError();
@@ -117,9 +119,9 @@ function advMailer_admin_modifyconfig()
 
     // assign queue methods
     $render->assign('queuetypes', array(
-        1 => DataUtil::formatForDisplay(_ADVMAILER_INSTANTDELIVERY),
-        2 => DataUtil::formatForDisplay(_ADVMAILER_QUEUECRONJOB),
-        3 => DataUtil::formatForDisplay(_ADVMAILER_QUEUESYSTEMINIT)));
+        1 => DataUtil::formatForDisplay(__('Send mails immediately', $dom)),
+        2 => DataUtil::formatForDisplay(__('Send mails via cronjob', $dom)),
+        3 => DataUtil::formatForDisplay(__('Send mails in background using SystemInit hooks', $dom))));
 
     // assign all module vars
     $render->assign(pnModGetVar('advMailer'));
@@ -130,7 +132,7 @@ function advMailer_admin_modifyconfig()
 /**
  * This is a standard function to update the configuration parameters of the
  * module given the information passed back by the modification form
- * @author Florian Schießl
+ * @author Florian SchieÃŸl
  * @see advMailer_admin_updateconfig()
  * @param int queuefrequency Mails sent at one time for a system init or a cronjob url call
  * @param string queuecronpwd Password for URL that is called via any cron service
@@ -139,6 +141,7 @@ function advMailer_admin_modifyconfig()
  */
 function advMailer_admin_updateconfig()
 {
+    $dom = ZLanguage::getModuleDomain('advMailer');
     // security check
     if (!SecurityUtil::checkPermission('advMailer::', '::', ACCESS_ADMIN)) {
         return LogUtil::registerPermissionError();
@@ -171,7 +174,7 @@ function advMailer_admin_updateconfig()
     pnModCallHooks('module', 'updateconfig', 'advMailer', array('module' => 'advMailer'));
 
     // the module configuration has been updated successfuly
-    LogUtil::registerStatus (_CONFIGUPDATED);
+    LogUtil::registerStatus (__('Done! Module configuration updated.', $dom));
 
     // This function generated no output, and so now it is complete we redirect
     // the user to an appropriate page for them to carry on their work
