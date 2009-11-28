@@ -2,7 +2,7 @@
 /**
  * @package      advMailer
  * @version      $Id$
- * @author       Florian Schieﬂl
+ * @author       Florian Schie√ül
  * @link         http://www.ifs-net.de
  * @copyright    Copyright (C) 2009
  * @license      http://www.gnu.org/copyleft/gpl.html GNU General Public License
@@ -10,7 +10,7 @@
 
 /**
  * initialise tables
- * @author Florian Schieﬂl
+ * @author Florian Schie√ül
  * @return bool true if successful, false otherwise
  */
 function advMailer_pntables()

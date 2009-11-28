@@ -11,7 +11,7 @@
 /**
  * get mail status
  *
- * @author Florian Schießl
+ * @author Florian SchieÃl
  * @params  int args['status']        mail status
  * @return array array of admin links
  */
@@ -19,8 +19,8 @@ function smarty_function_mailstatus($params, &$smarty)
 {
     $dom = ZLanguage::getModuleDomain('advMailer');
     // Get parameters
-	$status = $params['status'];
-	if (!isset($status) || (!($status >= 0))) {
+    $status = $params['status'];
+    if (!isset($status) || (!($status >= 0))) {
         return "status error";
     }
 

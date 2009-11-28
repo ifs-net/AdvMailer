@@ -18,7 +18,7 @@ function advMailer_adminapi_getlinks()
 {
     $dom = ZLanguage::getModuleDomain('advMailer');
     $links = array();
-    pnModLangLoad('advMailer', 'admin');
+
     if (SecurityUtil::checkPermission('advMailer::', '::', ACCESS_ADMIN)) {
         $links[] = array('url' => pnModURL('advMailer', 'admin', 'modifyconfig'), 'text' => __('Settings', $dom));
         $links[] = array('url' => pnModURL('advMailer', 'admin', 'templates'), 'text' => __('Templates', $dom));
@@ -82,10 +82,11 @@ function advMailer_adminapi_getQueue($args)
     }
 
     if ($countonly == 1) {
-        $result = DBUtil::selectObjectCount('advmailer_queue',$where);
+        $result = DBUtil::selectObjectCount('advmailer_queue', $where);
     } else {
-        $result = DBUtil::selectObjectArray('advmailer_queue',$where,$orderby,$limitoffset,$numrows);
+        $result = DBUtil::selectObjectArray('advmailer_queue', $where, $orderby, $limitoffset, $numrows);
     }
+
     // Return result
     return $result;
 }
@@ -124,10 +125,11 @@ function advMailer_adminapi_getErrorLog($args)
     }
 
     if ($countonly == 1) {
-        $result = DBUtil::selectObjectCount('advmailer_errorlog',$where);
+        $result = DBUtil::selectObjectCount('advmailer_errorlog', $where);
     } else {
-        $result = DBUtil::selectObjectArray('advmailer_errorlog',$where,$orderby,$limitoffset,$numrows);
+        $result = DBUtil::selectObjectArray('advmailer_errorlog', $where, $orderby, $limitoffset, $numrows);
     }
+
     // Return result
     return $result;
 }
@@ -168,7 +170,6 @@ function advMailer_adminapi_sendQueue($args)
                     if ($result) {
                         $result = DBUtil::deleteObject($mail,'advmailer_queue');
                         if (!$quietmode && !$result) {
-                            pnModLangLoad('Mailer', 'admin');
                             LogUtil::registerError(__('Message was moved to error log - delivery cancelled', $dom));
                         }
                         return false;
@@ -235,7 +236,7 @@ function advMailer_adminapi_requeue($args)
     }
 
     // Get mail
-    $mail = DBUtil::selectObjectByID('advmailer_errorlog',$id);
+    $mail = DBUtil::selectObjectByID('advmailer_errorlog', $id);
     if (!$mail) {
         return false;
     }
@@ -249,11 +250,11 @@ function advMailer_adminapi_requeue($args)
     unset($mail['id']);
 
     // Insert into Queue
-    $result = DBUtil::insertObject($mail,'advmailer_queue');
+    $result = DBUtil::insertObject($mail, 'advmailer_queue');
     if (!$result) {
         return false;
     } else {
-        DBUtil::deleteObject($backup,'advmailer_errorlog');
+        DBUtil::deleteObject($backup, 'advmailer_errorlog');
         return $result['id'];
     }
 }
@@ -286,5 +287,6 @@ function advMailer_adminapi_applyTemplate($args)
         $tpl_footer = $render->fetch('advmailer_'.$type.'_footer.htm');
     }
     // Return transformed body as mail content
-    return $tpl_header.$content.$tpl_footer;
+    return $tpl_header . $content . $tpl_footer;
 }
+

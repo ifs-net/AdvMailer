@@ -19,16 +19,17 @@
 function smarty_function_templateusage($params, &$smarty)
 {
     $dom = ZLanguage::getModuleDomain('advMailer');
-	$mail = unserialize($params['mail']);
-	if ((!$mail) | !isset($mail) || (!(count($mail) > 0))) {
+    $mail = unserialize($params['mail']);
+    if ((!$mail) | !isset($mail) || (!(count($mail) > 0))) {
         return 'param mail missing';
     }
-	$notemplates = (int) $mail['notemplates'];
+
+    $notemplates = (int) $mail['notemplates'];
     if ($notemplates == 1) {
         return __('No', $dom);
     } else {
         return __('Yes', $dom);
     }
 
-	return $mail[$item];
+    return $mail[$item];
 }

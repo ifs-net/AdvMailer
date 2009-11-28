@@ -1,0 +1,410 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: advMailer 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-11-27 23:41+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Axel Guckelsberger <info@guite.de>\n"
+"Language-Team: Axel Guckelsberger <info@guite.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: pnadmin.php:45
+msgid "This is <font color=\"red\">some default text</font> that will be <b>replaced</b> by your <i>email's content</i> later whenever a mail is being sent out!<hr />Have fun! ;-)"
+msgstr "Dies ist <font color=\"red\">ein Beispieltext der </font> als <b>Beispiel für einen Textkörper</b> der <i>E-Mail</i> steht. Die Vorlagen werden vor und hinter diesem Text plaziert."
+
+#: pnadmin.php:46
+msgid "This is some default text that will be replaced by your email's content later whenever a mail is being sent out!"
+msgstr "Dies ist ein Beispieltext der als Beispiel für einen Textkörper der E-Mail steht. Die Vorlagen werden vor und hinter diesem Text plaziert."
+
+#: pnadmin.php:122
+msgid "Send mails immediately"
+msgstr "E-Mails ohne Verzögerung sofort verschicken"
+
+#: pnadmin.php:123
+msgid "Send mails via cronjob"
+msgstr "E-Mails mittels gesteuerten Cronjob-Aufruf intervallweise senden lassen"
+
+#: pnadmin.php:124
+msgid "Send mails in background using SystemInit hooks"
+msgstr "Mittels SystemInit-Hook E-Mails im Hintergrund bei Seitenaufrufen senden lassen"
+
+#: pnadmin.php:177
+msgid "Done! Module configuration updated."
+msgstr "Erledigt! Konfiguration geändert."
+
+#: pnincludes/classes/admin/queue.php:36
+#: pnincludes/classes/admin/queue.php:42
+#: pnincludes/classes/admin/queue.php:54
+#: pnincludes/classes/admin/errorlog.php:36
+#: pnincludes/classes/admin/errorlog.php:42
+#: pnincludes/classes/admin/errorlog.php:54
+msgid "An error occured - the mail could not be loaded. Maybe it was delivered or moved to error logfile in the time between creating the last overview and your action."
+msgstr "Es ist ein Fehler aufgetreten. Möglicherweise ist die ausgewählte Mail bereits im Hintergrund erfolgreich verschickt oder im Fehlerprotokoll gespeichert worden."
+
+#: pnincludes/classes/admin/queue.php:40
+#: pnincludes/classes/admin/errorlog.php:40
+msgid "The mail was successfully removed and deleted from the mail queue"
+msgstr "Die Mail wurde erfolgreich und vollständig gelöscht und damit nicht zugestellt"
+
+#: pnincludes/classes/admin/queue.php:69
+msgid "An error occured while trying to send the selected email manualy"
+msgstr "Beim manuellen Sendeversuch ist ein Fehler aufgetreten"
+
+#: pnincludes/classes/admin/queue.php:71
+msgid "The email was sent successfully and removed from the mail queue"
+msgstr "Die E-Mail wurde erfolgreich verschickt und aus der Warteschlange entfernt"
+
+#: pnincludes/classes/admin/errorlog.php:69
+msgid "An error occured while trying to requeue mail"
+msgstr "Ein Fehler ist beim Versuch aufgetreten, die Email erneut in die Warteschlange zu stellen"
+
+#: pnincludes/classes/admin/errorlog.php:71
+msgid "Mail was requeued with highest priority and new ID"
+msgstr "E-Mail wurde mit hoher Priorität neu in die Warteschlange eingereiht"
+
+#: pnincludes/classes/admin/errorlog.php:91
+msgid "mails requeued - please repeat this action until all mails are requeued"
+msgstr "E-Mails wurden in die Warteschlange neu eingestellt. Bitte diese Aktion wiederholen. Aufgrund der großen Menge an E-Mails konnten nicht alle E-Mails gleichzeitig neu eingestellt werden und der Link muss erneut betätigt werden!"
+
+#: pnincludes/classes/admin/errorlog.php:93
+msgid "Mails reqeued successfully"
+msgstr "E-Mails wurden erneut in die Warteschlange eingereiht und aus dem Fehlerprotokoll gelöscht"
+
+#: pnincludes/classes/admin/errorlog.php:105
+msgid "Error log deleted completely"
+msgstr "Fehlerprotokoll vollständig gelöscht"
+
+#: pnincludes/classes/admin/errorlog.php:107
+msgid "An error occured while deleting error log"
+msgstr "Fehler aufgetreten beim Versuch, aus dem Fehlerprotokoll zu löschen"
+
+#: pntemplates/plugins/function.templateusage.php:29
+msgid "No"
+msgstr "Nein"
+
+#: pntemplates/plugins/function.templateusage.php:31
+msgid "Yes"
+msgstr "Ja"
+
+#: pntemplates/plugins/function.extractmail.php:24
+#: pntemplates/plugins/function.showmail.php:23
+msgid "param mail missing"
+msgstr "mail Parameter fehlt"
+
+#: pntemplates/plugins/function.extractmail.php:29
+msgid "item not found"
+msgstr "Eintrag nicht gefunden"
+
+#: pntemplates/plugins/function.mailstatus.php:33
+msgid "waiting for delivery"
+msgstr "Warten auf Zustellung"
+
+#: pntemplates/plugins/function.mailstatus.php:35
+msgid "failed... waiting for retry"
+msgstr "Zustellung gescheitert, Warten auf weiteren Versuch"
+
+#: pntemplates/plugins/function.mailstatus.php:37
+msgid "failed... waiting for last try"
+msgstr "Zustellung gescheitert, Warten auf letzten Versuch"
+
+#: pnuser.php:25
+msgid "Cron disabled"
+msgstr "Cron-Service ausgeschaltet"
+
+#: pnuser.php:32
+msgid "Authentication correct..."
+msgstr "Authentifizierung korrekt..."
+
+#: pnuser.php:33
+msgid "Start of mail delivery..."
+msgstr "Starte den E-Mail Versand..."
+
+#: pnuser.php:38
+msgid "No mails in the queue"
+msgstr "Keine E-Mails in der Warteschlange"
+
+#: pnuser.php:45
+msgid "Send ID"
+msgstr "E-Mail gesendet mit der ID"
+
+#: pnuser.php:47
+msgid "Sent Error ID"
+msgstr "Fehler beim Senden der E-Mail mit der ID"
+
+#: pnuser.php:52
+msgid "Wrong password"
+msgstr "Falsches Passwort"
+
+#: pnadminapi.php:23
+#: pnadminapi.php:28
+#: pntemplates/advmailer_admin_errorlog.htm:5
+#: pntemplates/advmailer_admin_queue.htm:5
+#: pntemplates/advmailer_admin_templates.htm:5
+#: pntemplates/advmailer_admin_modifyconfig.htm:5
+#: pntemplates/advmailer_admin_modifyconfig.htm:6
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: pnadminapi.php:24
+#: pntemplates/advmailer_admin_queue.htm:37
+#: pntemplates/advmailer_admin_templates.htm:6
+msgid "Templates"
+msgstr "Vorlagen / Templates"
+
+#: pnadminapi.php:25
+msgid "Mail-Queue"
+msgstr "Warteschlange"
+
+#: pnadminapi.php:26
+msgid "Error-log"
+msgstr "Fehlerprotokoll"
+
+#: pnadminapi.php:27
+msgid "Test configuration"
+msgstr "Konfiguration testen"
+
+#: pnadminapi.php:174
+msgid "Message was moved to error log - delivery cancelled"
+msgstr "Nachricht wurde ins Fehlerprotokoll verschoben - Zustellung wurde abgebrochen!"
+
+#: pninit.php:22
+msgid "Error creating hook"
+msgstr "Fehler beim Erstellen des Hooks"
+
+#: pninit.php:36
+msgid "Error! Index creation failed."
+msgstr "Fehler! Erstellen des Index fehlgeschlagen"
+
+#: pninit.php:84
+msgid "Error deleting hook"
+msgstr "Fehler beim Entfernen des Hooks"
+
+#: pnversion.php:13
+msgid "Advanced Mailer"
+msgstr "Advanced Mailer"
+
+#: pnversion.php:14
+msgid "advmailer"
+msgstr "advmailer"
+
+#: pnversion.php:15
+msgid "Advanced Mailer management: This module gives more functionallity to the regular zikula Mailer module"
+msgstr "Erweiterte Mailer-Verwaltung: dieses Modul erweitert das normale Zikula Mailer-Modul um zusätzliche Funktionalitäten"
+
+#: pntemplates/advmailer_admin_errorlog.htm:6
+msgid "Mail error log view and administration"
+msgstr "advanced Mailer Fehlerprotokoll"
+
+#: pntemplates/advmailer_admin_errorlog.htm:6
+msgid "failed deliveries"
+msgstr "fehlgeschlagene Zustellungen"
+
+#: pntemplates/advmailer_admin_errorlog.htm:10
+#: pntemplates/advmailer_admin_queue.htm:10
+msgid "Mail content"
+msgstr "Inhalt der E-Mail"
+
+#: pntemplates/advmailer_admin_errorlog.htm:11
+#: pntemplates/advmailer_admin_errorlog.htm:37
+#: pntemplates/advmailer_admin_queue.htm:11
+#: pntemplates/advmailer_admin_queue.htm:39
+msgid "mail subject"
+msgstr "Betreff"
+
+#: pntemplates/advmailer_admin_errorlog.htm:12
+#: pntemplates/advmailer_admin_errorlog.htm:36
+#: pntemplates/advmailer_admin_queue.htm:12
+#: pntemplates/advmailer_admin_queue.htm:38
+msgid "recipient"
+msgstr "Empfänger"
+
+#: pntemplates/advmailer_admin_errorlog.htm:21
+msgid "Requeue all mails"
+msgstr "E-Alle Mails neu in die Warteschlange einreihen"
+
+#: pntemplates/advmailer_admin_errorlog.htm:22
+msgid "Please confirm the deletion of all mails of the error log"
+msgstr "Bitte die Löschung aller im Protokoll vorhandener Fehlzustellungen bestätigen"
+
+#: pntemplates/advmailer_admin_errorlog.htm:22
+msgid "Delete the error log"
+msgstr "Fehlerprotokoll komplett löschen"
+
+#: pntemplates/advmailer_admin_errorlog.htm:32
+#: pntemplates/advmailer_admin_queue.htm:29
+msgid "Mail ID"
+msgstr "E-Mail-ID"
+
+#: pntemplates/advmailer_admin_errorlog.htm:38
+msgid "date of last try"
+msgstr "Datum des letzten Zustellversuchs"
+
+#: pntemplates/advmailer_admin_errorlog.htm:42
+#: pntemplates/advmailer_admin_queue.htm:48
+msgid "action"
+msgstr "Aktion"
+
+#: pntemplates/advmailer_admin_errorlog.htm:52
+#: pntemplates/advmailer_admin_queue.htm:71
+msgid "delete"
+msgstr "Löschen"
+
+#: pntemplates/advmailer_admin_errorlog.htm:54
+msgid "requeue"
+msgstr "wieder in Warteschlange einreihen"
+
+#: pntemplates/advmailer_admin_errorlog.htm:64
+msgid "No mails stored in the error logfile"
+msgstr "Keine Einträge im Fehlerprotokoll gefunden"
+
+#: pntemplates/advmailer_admin_queue.htm:6
+msgid "Mail queue view and administration"
+msgstr "Warteschlangen-Verwaltung"
+
+#: pntemplates/advmailer_admin_queue.htm:6
+msgid "mails in queue"
+msgstr "E-Mails in der Warteschlange"
+
+#: pntemplates/advmailer_admin_queue.htm:20
+msgid "Here all mails from the mail queue are listed. Please do not forget that mails might be sent instantly after they were listed here. You can access the mail if you click on the title."
+msgstr "Hier sind alle sich aktuell in der Warteschlange befindlichen Mails aufgelistet. Durch Klick auf den Betreff kann der Inhalt eingesehen werden. Achtung bei Aktionen: Ggf. ist das Mail bei einer ausgewählten Aktion nicht mehr verfügbar, wenn es im Zeitraum der Übersichtserstellung und dem Klick zur Aktion im Hintergrund bereits erfolgreich versendet wurde."
+
+#: pntemplates/advmailer_admin_queue.htm:33
+msgid "priority"
+msgstr "Priorität"
+
+#: pntemplates/advmailer_admin_queue.htm:40
+msgid "planed date"
+msgstr "Versanddatum"
+
+#: pntemplates/advmailer_admin_queue.htm:44
+msgid "status"
+msgstr "Status"
+
+#: pntemplates/advmailer_admin_queue.htm:61
+msgid "now"
+msgstr "jetzt"
+
+#: pntemplates/advmailer_admin_queue.htm:73
+msgid "send manually"
+msgstr "jetzt senden"
+
+#: pntemplates/advmailer_admin_queue.htm:83
+msgid "Mail queue emtpy - nothing to display"
+msgstr "Warteschlange leer - keine Mail zur Zustellung gespeichert."
+
+#: pntemplates/advmailer_admin_templates.htm:8
+msgid "You can create templates for all emails that will be sent out that are customized for your site. There are two types of emails going out: HTML and plain text. There are some example templates in the Mailer's template folder. There are four templates - two for HTML and two for plain text mails. Always the right template is chosen - depending on the mail type. The templates have to be named the following way"
+msgstr "Hier können Templates (Vorlagen) verwendet werden. Diese bestehen aus Kopf- und Fußteil und werden um den zu sendenden Text herum plaziert. Je nach Inhaltstyp werden verschiedene Vorlagen verwendet. Inhaltstypen sind formatierter Text (html) und reiner Text (text). Je nach zu verschickendem Email werden immer die richtigen Vorlagen verwendet."
+
+#: pntemplates/advmailer_admin_templates.htm:10
+msgid "Header for plain text mails"
+msgstr "Kopfteil für Text E-Mails"
+
+#: pntemplates/advmailer_admin_templates.htm:11
+msgid "Footer for plain text mails"
+msgstr "Fußteil für Text E-Mails"
+
+#: pntemplates/advmailer_admin_templates.htm:12
+msgid "Header for HTML mails"
+msgstr "Fußteil für HTML E-Mails"
+
+#: pntemplates/advmailer_admin_templates.htm:13
+msgid "Footer for HTML mails"
+msgstr "Kopfteil für HTML E-Mails"
+
+#: pntemplates/advmailer_admin_templates.htm:17
+msgid "Module developers can override the usage of these templates - if you are a developer, please read the function's documentation! Pleas also mention that template changes will not affect all mails that are already in the mail queue and waiting for delivery!"
+msgstr "Modulentwickler können die Verwendung von Vorlagen überschreiben. Bitte hierzu die Dokumentation der Funktion advMailer::userapi::sendmessage lesen."
+
+#: pntemplates/advmailer_admin_templates.htm:20
+msgid "Preview"
+msgstr "Vorschau"
+
+#: pntemplates/advmailer_admin_templates.htm:21
+msgid "Please use theme based template overriding and clear your rendering cache after changing the templates. The templates will be used as they are seen below."
+msgstr "Bitte die für diese Seite konfigurierten Templates am besten im Theme-Ordner ablegen - diese überschreiben dann automatisch die Beispieltemplates. Werden die Templates direkt im advMailer-Modulordner bearbeitet, können diese bei Modulupdates überschrieben werden."
+
+#: pntemplates/advmailer_admin_templates.htm:23
+msgid "Preview for plain text mails"
+msgstr "Vorschau für Text E-Mails"
+
+#: pntemplates/advmailer_admin_templates.htm:29
+#: pntemplates/advmailer_admin_templates.htm:38
+msgid "No templates found"
+msgstr "Keine Vorlagendateien gefunden"
+
+#: pntemplates/advmailer_admin_templates.htm:31
+msgid "Depending on your personal site mailer configuration linebreaks will be added before sending the email. These linebreaks can not be seen here - please send a test email to an own email account for testing this."
+msgstr "Zeilenumbrüche werden direkt beim Versand hinzugefügt. Die Einstellung zu Zeilenumbrüchen bei Text-Mails bitte im Administrationsbereich des Mailer-Moduls vornehmen."
+
+#: pntemplates/advmailer_admin_templates.htm:32
+msgid "Preview for html mails"
+msgstr "Vorschau für HTML E-Mails"
+
+#: pntemplates/advmailer_admin_modifyconfig.htm:11
+msgid "Advanced Mailer settings"
+msgstr "Advanced Mailer - Konfiguration der Haupteinstellungen"
+
+#: pntemplates/advmailer_admin_modifyconfig.htm:13
+msgid "Default method for queue handling"
+msgstr "Eingestellte Methode für die Nutzung von Warteschlangen beim Mailversand"
+
+#: pntemplates/advmailer_admin_modifyconfig.htm:19
+msgid "Settings for mail queue handling"
+msgstr "Erweiterte Einstellung für die Nutzung des Warteschlangensystems"
+
+#: pntemplates/advmailer_admin_modifyconfig.htm:20
+msgid "Queue modes can make sense of your site is a site with high outgoing mail traffic. Mails are put in a queue and sent mail by mail in the background. Mails can be sent with each site call that is made by any user. Mail sending will be handled in the background. You can choose between to different queue modes: Mails can be sent with each site call (a user or a visitor will make your emails to be sent without seeing this) or you can use a given URL for a cronjob service. Just call the cronjob URL with a password (you can try it out in your browser entering the url) you have specified and this will send the number of mails you specified in this configuration area."
+msgstr "Bei sehr hohem Emailaufkommen oder zur teils deutlichen Verbesserung des Seitenaufbaus bei stark interaktiven Seiten empfiehlt sich die Nutzung von Warteschlangensystemen. So entstehen beim Laden von Seiten keine Wartezeiten für den Endnutzer, wenn im Hintergrund z.B. durch Benutzeraktionen viele Emailbenachrichtigungen (Muster-Anwendungsfall: Forum) verschickt werden müssen. Der Cronjob-Aufruf hat als URL-Aufruf zu erfolgen und kann bequem durch Eingabe der URL mit dem Passwort getestet werden."
+
+#: pntemplates/advmailer_admin_modifyconfig.htm:22
+msgid "Number of mails that should be sent with each site or cronjob call"
+msgstr "Anzahl an Mails, welche bei einem Aufruf maximal verschickt werden soll"
+
+#: pntemplates/advmailer_admin_modifyconfig.htm:26
+msgid "Password for cronjob call"
+msgstr "Passwort für den Aufruf der Versand-URL mittels Cronjob"
+
+#: pntemplates/advmailer_admin_modifyconfig.htm:29
+msgid "Call this URL for email delivery regularly"
+msgstr "Folgende URL muss zeitgesteuert aufgerufen werden um eine Versandwelle zu starten"
+
+#: pntemplates/advmailer_admin_modifyconfig.htm:31
+msgid "Please set a cronjob password to get the URL for this service"
+msgstr "Bitte ein Passwort für den Cronjob-Aufruf festlegen - sonst ist der Service nicht nutzbar!"
+
+#: pntemplates/advmailer_admin_modifyconfig.htm:38
+msgid "Update Configuration"
+msgstr "Konfiguration ändern"
+
+#: pntemplates/advmailer_admin_modifyconfig.htm:39
+msgid "Cancel"
+msgstr "Abbruch"
+
+#: pntemplates/advmailer_admin_menu.htm:4
+msgid "The Advanced Zikula Mailer module"
+msgstr "advMailer - das umfangreichere Mailer-Modul für Zikula'"
+
+#: pntemplates/advmailer_admin_menu.htm:7
+msgid "Version"
+msgstr "Version"
+
+#: pntemplates/advmailer_admin_menu.htm:7
+msgid "powered by"
+msgstr "powered by"
+
+#: pntemplates/advmailer_admin_menu.htm:7
+msgid "You like the module and it's usefull for you"
+msgstr "Das Modul gefällt und ist nützlich"
+
+#: pntemplates/advmailer_admin_menu.htm:7
+msgid "Donate and support my software development"
+msgstr "Spenden und Entwicklung unterstützen"
+

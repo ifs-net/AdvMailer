@@ -42,10 +42,10 @@ function advMailer_admin_templates()
     }
 
     // get html template
-    $html_preview = pnModAPIFunc('advMailer','admin','applyTemplate',array('content' => __('This is <font color="red">some default text</font> that will be <b>replaced</b> by your <i>email\'s content</i> later whenever a mail is being sent out!<hr />Have fun! ;-)', $dom), 'type' => 'html'));
-    $text_preview = pnModAPIFunc('advMailer','admin','applyTemplate',array('content' => __('This is some default text that will be replaced by your email\'s content later whenever a mail is being sent out!', $dom), 'type' => 'text'));
-    $text_preview = str_replace('<','&lt;',$text_preview);
-    $text_preview = str_replace('>','&gt;',$text_preview);
+    $html_preview = pnModAPIFunc('advMailer', 'admin', 'applyTemplate', array('content' => __('This is <font color="red">some default text</font> that will be <b>replaced</b> by your <i>email\'s content</i> later whenever a mail is being sent out!<hr />Have fun! ;-)', $dom), 'type' => 'html'));
+    $text_preview = pnModAPIFunc('advMailer', 'admin', 'applyTemplate', array('content' => __('This is some default text that will be replaced by your email\'s content later whenever a mail is being sent out!', $dom), 'type' => 'text'));
+    $text_preview = str_replace('<', '&lt;', $text_preview);
+    $text_preview = str_replace('>', '&gt;', $text_preview);
 
     // Maybe only the html should be shown?
     $html = (int) FormUtil::getPassedValue('html');
@@ -72,11 +72,11 @@ function advMailer_admin_templates()
  */
 function advMailer_admin_queue()
 {
-  	// load handler class
-	Loader::requireOnce('modules/advMailer/pnincludes/classes/admin/queue.php');
+    // load handler class
+    Loader::requireOnce('modules/advMailer/pnincludes/classes/admin/queue.php');
 
-	// Create output and call handler class
-	$render = FormUtil::newpnForm('advMailer');
+    // Create output and call handler class
+    $render = FormUtil::newpnForm('advMailer');
 
     // Return the output
     return $render->pnFormExecute('advmailer_admin_queue.htm', new advmailer_queueHandler());
