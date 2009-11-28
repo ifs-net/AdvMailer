@@ -17,24 +17,21 @@
 function advMailer_init()
 {
     $dom = ZLanguage::getModuleDomain('advMailer');
-	// install system init hook
+    // install system init hook
     if (!pnModRegisterHook('zikula', 'systeminit', 'API', 'advMailer', 'user', 'systeminit')) {
         LogUtil::registerError(__('Error creating hook', $dom));
         return false;
     }
 
     // Create tables
-  	$tables = array (
-  		'advmailer_queue',
-  		'advmailer_errorlog'
-		  );
-	foreach ($tables as $table) {
-		if (!DBUtil::createTable($table)) {
-		  	return false;
-		}
-	}
+    $tables = array('advmailer_queue', 'advmailer_errorlog');
+    foreach ($tables as $table) {
+        if (!DBUtil::createTable($table)) {
+            return false;
+        }
+    }
 
-	// Create indexes
+    // Create indexes
     if (!DBUtil::createIndex('priorityindex', 'advmailer_queue', array('priority'))) {
         LogUtil::registerError(__('Error! Index creation failed.', $dom));
         return false;
@@ -60,7 +57,7 @@ function advMailer_init()
 function advMailer_upgrade($oldversion)
 {
     // Upgrade dependent on old version number
-    switch($oldversion) {
+    switch ($oldversion) {
         case '1.0':
         default:
     }
@@ -88,16 +85,14 @@ function advMailer_delete()
         return false;
     }
     // Delete tables
-  	$tables = array (
-  		'advmailer_queue',
-  		'advmailer_errorlog'
-		  );
-	foreach ($tables as $table) {
-		if (!DBUtil::dropTable($table)) {
-		  	return false;
-		}
-	}
-    // Delete any module variables
+    $tables = array('advmailer_queue', 'advmailer_errorlog');
+    foreach ($tables as $table) {
+        if (!DBUtil::dropTable($table)) {
+            return false;
+        }
+    }
+
+    // Delete all module variables
     pnModDelVar('advMailer');
 
     // Deletion successful

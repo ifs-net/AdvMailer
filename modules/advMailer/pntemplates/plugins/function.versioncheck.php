@@ -23,28 +23,27 @@ function smarty_function_versioncheck($params, &$smarty)
     // some code based on work from Axel Guckelsberger - thanks for this inspiration
     $currentversion = pnModGetInfo(pnModGetIDFromName($params['module']));
     $currentversion = trim($currentversion['version']);
-    
-    // current version           
+
+    // current version
     $output = $currentversion;
-    
+
     // get newest version number
     require_once('Snoopy.class.php');
     $snoopy = new Snoopy;
-    $snoopy->fetchtext("http://updates.ifs-net.de/zikula/".$params['module'].".txt");
+    $snoopy->fetchtext("http://updates.ifs-net.de/zikula/" . $params['module'] . ".txt");
 
     $newestversion = $snoopy->results;
-    $newestversion = trim($newestversion);   
-    if (!$newestversion) { 
-      // newest version check not possible, so return only current version number
-      echo($output." (installation is up to date)");
-      return; 
-    }  
-    
+    $newestversion = trim($newestversion);
+    if (!$newestversion) {
+        // newest version check not possible, so return only current version number
+        echo $output . " (installation is up to date)";
+        return;
+    }
+
     if ($currentversion != $newestversion) {
-      // generate info link if new version is available
-      $output .= " (<strong><a href=\"http://www.ifs-net.de/\">Please update! Update available! Latest release: ".$newestversion."</a></strong>)</p>";
-    }   
-    echo($output);
-    return; 
-}      
+        // generate info link if new version is available
+        $output .= " (<strong><a href=\"http://www.ifs-net.de/\">Please update! Update available! Latest release: ".$newestversion."</a></strong>)</p>";
+    }
+    echo $output;
+}
 

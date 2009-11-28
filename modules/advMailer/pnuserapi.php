@@ -2,7 +2,7 @@
 /**
  * @package      advMailer
  * @version      $Id$
- * @author       Florian Schießl
+ * @author       Florian SchieÃŸl
  * @link         http://www.ifs-net.de
  * @copyright    Copyright (C) 2009
  * @license      http://www.gnu.org/copyleft/gpl.html GNU General Public License
@@ -10,7 +10,7 @@
 
 /**
  * API function to queue  email message
- * @author Florian Schießl
+ * @author Florian SchieÃŸl
  * @param   int             args['notemplates']         optional, for modules sending emails without predefined templates
  * @param   int             args['priority']            optional, highest priority 1, lowest 10, default 5
  * @param   int             args['noqueue']             optional, do not use queue even if configured
@@ -20,9 +20,6 @@
  */
 function advMailer_userapi_sendmessage($args)
 {
-    // Load language file for templates
-    pnModLangLoad('advMailer');
-    
     // If queue handling is activated we will just put the function call into the queue and process this later
     $noqueue    = (int) $args['noqueue'];
     $queuetype  = pnModGetVar('advMailer', 'queuetype');
@@ -36,7 +33,7 @@ function advMailer_userapi_sendmessage($args)
         } else {
             $mailtype = 'text';
         }
-        $args['body'] = pnModAPIFunc('advMailer','admin','applyTemplate',array('content' => $args['body'], 'type' => $mailtype));
+        $args['body'] = pnModAPIFunc('advMailer', 'admin', 'applyTemplate', array('content' => $args['body'], 'type' => $mailtype));
         $args['templated'] = 1;
     }
 
@@ -66,7 +63,7 @@ function advMailer_userapi_sendmessage($args)
             'content'   => serialize($args),
             'date'      => $date
           );
-        $result = DBUtil::insertObject($obj,'advmailer_queue');
+        $result = DBUtil::insertObject($obj, 'advmailer_queue');
         if ($result) {
             return true;
         } else {
@@ -76,7 +73,7 @@ function advMailer_userapi_sendmessage($args)
     } else {
         // Add processed flag
         $args['processed'] = 1;
-        $result = pnModAPIFunc('Mailer','user','sendmessage',$args);
+        $result = pnModAPIFunc('Mailer', 'user', 'sendmessage', $args);
         return $result;
     }
 }
@@ -93,7 +90,7 @@ function advMailer_userapi_systeminit()
     $type = strtolower($type);
     if (!isset($type) || ($type != 'admin')) {
         // Calling sendQueue without parameters lets the mails be sent out
-        pnModAPIFunc('advMailer','admin','sendQueue');
+        pnModAPIFunc('advMailer', 'admin', 'sendQueue');
     }
     // Nothing to return - otherwise errors would be displayed for the actual user
     return;
@@ -108,3 +105,4 @@ function advMailer_userapi_replaceLinks($args) {
     $replacement = preg_replace('/([\w]+:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/i','<a href="'.urlencode("$1").'" rel="nofollow">$1</a>', $args['text']);
     return $replacement;
 }
+

@@ -33,13 +33,13 @@ class advMailer_errorlogHandler
             } else {
                 $obj = DBUtil::selectObjectByID('advmailer_errorlog',$delete);
                 if (!$obj) {
-                    LogUtil::registerError(_MAILER_MAIL_LOAD_ERROR);
+                    LogUtil::registerError(__('An error occured - the mail could not be loaded. Maybe it was delivered or moved to error logfile in the time between creating the last overview and your action.', $dom));
                 } else {
                     $result = DBUtil::deleteObject($obj,'advmailer_errorlog');
                     if ($result) {
-                        LogUtil::registerStatus(_MAILER_MAIL_DELETED);
+                        LogUtil::registerStatus(__('The mail was successfully removed and deleted from the mail queue', $dom));
                     } else {
-                        LogUtil::registerError(_MAILER_MAIL_LOAD_ERROR);
+                        LogUtil::registerError(__('An error occured - the mail could not be loaded. Maybe it was delivered or moved to error logfile in the time between creating the last overview and your action.', $dom));
                     }
                 }
             }
@@ -51,7 +51,7 @@ class advMailer_errorlogHandler
         if ($id > 0) {
             $result = DBUtil::selectObjectByID('advmailer_errorlog',$id);
             if (!$result) {
-                LogUtil::registerError(_MAILER_MAIL_LOAD_ERROR);
+                LogUtil::registerError(__('An error occured - the mail could not be loaded. Maybe it was delivered or moved to error logfile in the time between creating the last overview and your action.', $dom));
        		  	return $render->pnFormRedirect(pnModURL('advMailer','admin','errorlog'));
             } else {
                 $render->assign('mail', $result);
@@ -66,9 +66,9 @@ class advMailer_errorlogHandler
             } else {
                 $result = pnModAPIFunc('advMailer','admin','requeue',array('id' => $requeue));
                 if (!$result) {
-                    LogUtil::registerError(_MAILER_REQUEUE_ERROR);
+                    LogUtil::registerError(__('An error occured while trying to requeue mail', $dom));
                 } else {
-                    LogUtil::registerStatus(_MAILER_MAIL_REQEUEUED.' '.$result);
+                    LogUtil::registerStatus(__('Mail was requeued with highest priority and new ID', $dom) . ' ' . $result);
                 }
             }
             return $render->pnFormRedirect(pnModURL('advMailer','admin','errorlog'));
@@ -79,8 +79,8 @@ class advMailer_errorlogHandler
             if (!SecurityUtil::confirmAuthkey()) {
                 LogUtil::registerAuthIDError();
             } else {
-                $queue      = pnModAPIFunc('advMailer','admin','getErrorLog',array('limitoffset' => $mailerpager, 'numrows' => $numrows, 'sortmode' => $sortmode));
-                $queuecount = pnModAPIFunc('advMailer','admin','getErrorLog',array('countonly' => 1));
+                $queue      = pnModAPIFunc('advMailer', 'admin', 'getErrorLog', array('limitoffset' => $mailerpager, 'numrows' => $numrows, 'sortmode' => $sortmode));
+                $queuecount = pnModAPIFunc('advMailer', 'admin', 'getErrorLog', array('countonly' => 1));
                 $c = 0;
                 foreach ($queue as $item) {
                     $c++;
@@ -88,12 +88,12 @@ class advMailer_errorlogHandler
                 }
                 $max = 1000;
                 if ($queuecount > $max) {
-                    LogUtil::registerStatus(_MAILER_REQUEUE_SECCESSFUL_REPEAT);
+                    LogUtil::registerStatus(__('mails requeued - please repeat this action until all mails are requeued', $dom));
                 } else {
-                    LogUtil::registerStatus($c.' '._MAILER_REQUEUE_SECCESSFUL);
+                    LogUtil::registerStatus($c.' ' . __('Mails reqeued successfully', $dom));
                 }
             }
-            return $render->pnFormRedirect(pnModURL('advMailer','admin','errorlog'));
+            return $render->pnFormRedirect(pnModURL('advMailer', 'admin', 'errorlog'));
         }
         // Delete error log
         if (isset($action) && ($action == 'da')) {
@@ -102,12 +102,12 @@ class advMailer_errorlogHandler
             } else {
                 $result = DBUtil::truncateTable('advmailer_errorlog');
                 if ($result) {
-                    LogUtil::registerStatus(_MAILER_ERROR_LOG_DELETED);
+                    LogUtil::registerStatus(__('Error log deleted completely', $dom));
                 } else {
-                    LogUtil::registerError(_MAILER_ERROR_LOG_DELETION_ERROR);
+                    LogUtil::registerError(__('An error occured while deleting error log', $dom));
                 }
             }
-            return $render->pnFormRedirect(pnModURL('advMailer','admin','errorlog'));
+            return $render->pnFormRedirect(pnModURL('advMailer', 'admin', 'errorlog'));
         }
 
         // Get mail queue and parameters
@@ -119,8 +119,8 @@ class advMailer_errorlogHandler
         }
         $numrows    = 20;
         $sortmode   = (int) FormUtil::getPassedValue('sortmode');
-        $queue      = pnModAPIFunc('advMailer','admin','getErrorLog',array('limitoffset' => $mailerpager, 'numrows' => $numrows, 'sortmode' => $sortmode));
-        $queuecount = pnModAPIFunc('advMailer','admin','getErrorLog',array('countonly' => 1));
+        $queue      = pnModAPIFunc('advMailer', 'admin', 'getErrorLog', array('limitoffset' => $mailerpager, 'numrows' => $numrows, 'sortmode' => $sortmode));
+        $queuecount = pnModAPIFunc('advMailer', 'admin', 'getErrorLog', array('countonly' => 1));
         $render->assign('queue',        $queue);
         $render->assign('queuecount',   $queuecount);
         $render->assign('numrows',      $numrows);

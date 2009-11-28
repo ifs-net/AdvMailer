@@ -11,7 +11,7 @@
 /**
  * get available admin panel links
  *
- * @author Florian Schießl
+ * @author Florian SchieÃl
  * @params  object  args['mail']        mail as object / array
  * @params  string  args['item']        item to extract
  * @return array array of admin links
@@ -19,15 +19,15 @@
 function smarty_function_extractmail($params, &$smarty)
 {
     $dom = ZLanguage::getModuleDomain('advMailer');
-	$mail = unserialize($params['mail']);
-	if ((!$mail) | !isset($mail) || (!(count($mail) > 0))) {
+    $mail = unserialize($params['mail']);
+    if ((!$mail) | !isset($mail) || (!(count($mail) > 0))) {
         return __('param mail missing', $dom);
     }
 
-	$item = (string) $params['item'];
-	if (!isset($item) || ($item == '')) {
+    $item = (string) $params['item'];
+    if (!isset($item) || ($item == '')) {
         return __('item not found', $dom);
     }
 
-	return $mail[$item];
+    return $mail[$item];
 }
