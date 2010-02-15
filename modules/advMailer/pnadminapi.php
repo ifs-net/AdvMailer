@@ -185,25 +185,25 @@ function advMailer_adminapi_sendQueue($args)
     } else {
         // Sent more mails otherwise
         // Get mail queue
-        $queue = pnModAPIFunc('Mailer','admin','getQueue',array('countonly' => 1));
+        $queue = pnModAPIFunc('advMailer','admin','getQueue',array('countonly' => 1));
         if ($queue > 0) {
             // Now we have to check if there is a lock by another
             // user that is sending via systeminit hook
-            $lock = (int) pnModGetVar('Mailer','locked');
+            $lock = (int) pnModGetVar('advMailer','locked');
             if ($lock > 0) {
                 // If lock is to old the other process might be crashed (5 min)
                 $diffdate = (time()-(5*60));
                 if ($lock < $diffdate) {
                     // Delete module variable - sending will go on with next site call
-                    pnModDelVar('Mailer','lock');
+                    pnModDelVar('advMailer','lock');
                     return true;
                 }
             } else {
                 // Lock for sending
-                pnModSetVar('Mailer','lock',time());
+                pnModSetVar('advMailer','lock',time());
                 // send now...
-                $queuefrequency = (int) pnModGetVar('Mailer','queuefrequency');
-                $queue = pnModAPIFunc('Mailer','admin','getQueue',array('numrows' => $queuefrequency));
+                $queuefrequency = (int) pnModGetVar('advMailer','queuefrequency');
+                $queue = pnModAPIFunc('advMailer','admin','getQueue',array('numrows' => $queuefrequency));
                 foreach ($queue as $mail) {
                     // We don't want to see any messages.. The user does not know that he is sending mails ;-)
                     $mail['quiet'] = 1;
