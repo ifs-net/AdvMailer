@@ -59,7 +59,8 @@ function advMailer_upgrade($oldversion)
     // Upgrade dependent on old version number
     switch ($oldversion) {
         case '1.0':
-        default:
+        case '1.1':
+            default:
     }
     // Update successful
     return true;
