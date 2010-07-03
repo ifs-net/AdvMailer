@@ -105,4 +105,3 @@ function advMailer_userapi_replaceLinks($args) {
     $replacement = preg_replace('/([\w]+:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/i','<a href="'.urlencode("$1").'" rel="nofollow">$1</a>', $args['text']);
     return $replacement;
 }
-

@@ -21,7 +21,7 @@ function smarty_function_extractmail($params, &$smarty)
     $dom = ZLanguage::getModuleDomain('advMailer');
     $mail = unserialize($params['mail']);
     if ((!$mail) | !isset($mail) || (!(count($mail) > 0))) {
-        return __('param mail missing', $dom).prayer($params);
+        return __('param mail missing', $dom);
     }
 
     $item = (string) $params['item'];
