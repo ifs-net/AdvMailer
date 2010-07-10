@@ -26,6 +26,6 @@ $modversion['securityschema'] = array('advMailer::' => '::');
 // module dependencies
 $modversion['dependencies'] = array(
     array(  'modname'    => 'Mailer',
-            'minversion' => '1.2', 'maxversion' => '',
+            'minversion' => '2.0.0', 'maxversion' => '',
             'status'     => PNMODULE_DEPENDENCY_REQUIRED    )
     );
