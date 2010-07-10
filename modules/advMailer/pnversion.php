@@ -13,7 +13,7 @@ $modversion['name']           = 'advMailer';
 $modversion['displayname']    = __('Advanced Mailer', $dom);
 $modversion['displayname']    = __('advmailer', $dom);
 $modversion['description']    = __('Advanced Mailer management: This module gives more functionallity to the regular zikula Mailer module', $dom);
-$modversion['version']        = '2.0';
+$modversion['version']        = '2.0.0';
 $modversion['credits']        = 'pndocs/credits.txt';
 $modversion['help']           = 'pndocs/help.txt';
 $modversion['changelog']      = 'pndocs/changelog.txt';
@@ -26,6 +26,6 @@ $modversion['securityschema'] = array('advMailer::' => '::');
 // module dependencies
 $modversion['dependencies'] = array(
     array(  'modname'    => 'Mailer',
-            'minversion' => '2.0.0', 'maxversion' => '',
+            'minversion' => '2.0', 'maxversion' => '',
             'status'     => PNMODULE_DEPENDENCY_REQUIRED    )
     );
