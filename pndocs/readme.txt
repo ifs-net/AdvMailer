@@ -13,7 +13,7 @@ To enable advanced mailer the following lines have to be added at the absolute b
 Mailer_userapi_sendmessage() function in file system/Mailer/pnuserapi.php:
 
 
-
+ONLY HAS TO BE DONE FOR ZIKULA UP TO VERSION 1.1.X
 
 function Mailer_userapi_sendmessage($args)
 {
