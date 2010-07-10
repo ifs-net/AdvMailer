@@ -43,6 +43,8 @@ function advMailer_init()
     pnModSetVar('advMailer', 'queuecronpwd', rand(1000000000,9999999999));
     pnModSetVar('advMailer', 'queuefrequency', 20);
 
+    LogUtil::registerStatus(__('Please take care to update the email tempaltes for html and text mails. Otherwise you will add default header and footer for all mails that are sent out from now on!'));
+    
     // Initialisation successful
     return true;
 }
@@ -60,6 +62,8 @@ function advMailer_upgrade($oldversion)
     switch ($oldversion) {
         case '1.0':
         case '1.1':
+            DBUtil::changeTable('advmailer_queue');
+            DBUtil::changeTable('advmailer_errorlog');
             default:
     }
     // Update successful
