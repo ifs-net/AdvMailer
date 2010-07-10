@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Zikula component\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-27 23:41+0100\n"
+"POT-Creation-Date: 2010-07-10 10:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,57 +16,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: pnadmin.php:45
-msgid ""
-"This is <font color=\"red\">some default text</font> that will be "
-"<b>replaced</b> by your <i>email's content</i> later whenever a mail is "
-"being sent out!<hr />Have fun! ;-)"
-msgstr ""
-
-#: pnadmin.php:46
-msgid ""
-"This is some default text that will be replaced by your email's content "
-"later whenever a mail is being sent out!"
-msgstr ""
-
-#: pnadmin.php:122
-msgid "Send mails immediately"
-msgstr ""
-
-#: pnadmin.php:123
-msgid "Send mails via cronjob"
-msgstr ""
-
-#: pnadmin.php:124
-msgid "Send mails in background using SystemInit hooks"
-msgstr ""
-
-#: pnadmin.php:177
-msgid "Done! Module configuration updated."
-msgstr ""
-
-#: pnincludes/classes/admin/queue.php:36 pnincludes/classes/admin/queue.php:42
-#: pnincludes/classes/admin/queue.php:54
 #: pnincludes/classes/admin/errorlog.php:36
 #: pnincludes/classes/admin/errorlog.php:42
 #: pnincludes/classes/admin/errorlog.php:54
+#: pnincludes/classes/admin/queue.php:36 pnincludes/classes/admin/queue.php:42
+#: pnincludes/classes/admin/queue.php:54
 msgid ""
 "An error occured - the mail could not be loaded. Maybe it was delivered or "
 "moved to error logfile in the time between creating the last overview and "
 "your action."
 msgstr ""
 
-#: pnincludes/classes/admin/queue.php:40
 #: pnincludes/classes/admin/errorlog.php:40
+#: pnincludes/classes/admin/queue.php:40
 msgid "The mail was successfully removed and deleted from the mail queue"
-msgstr ""
-
-#: pnincludes/classes/admin/queue.php:69
-msgid "An error occured while trying to send the selected email manualy"
-msgstr ""
-
-#: pnincludes/classes/admin/queue.php:71
-msgid "The email was sent successfully and removed from the mail queue"
 msgstr ""
 
 #: pnincludes/classes/admin/errorlog.php:69
@@ -93,33 +56,75 @@ msgstr ""
 msgid "An error occured while deleting error log"
 msgstr ""
 
-#: pntemplates/plugins/function.templateusage.php:29
-msgid "No"
+#: pnincludes/classes/admin/queue.php:69
+msgid "An error occured while trying to send the selected email manualy"
 msgstr ""
 
-#: pntemplates/plugins/function.templateusage.php:31
-msgid "Yes"
+#: pnincludes/classes/admin/queue.php:71
+msgid "The email was sent successfully and removed from the mail queue"
 msgstr ""
 
-#: pntemplates/plugins/function.extractmail.php:24
-#: pntemplates/plugins/function.showmail.php:23
-msgid "param mail missing"
+#: pnversion.php:13
+msgid "Advanced Mailer"
 msgstr ""
 
-#: pntemplates/plugins/function.extractmail.php:29
-msgid "item not found"
+#: pnversion.php:14
+msgid "advmailer"
 msgstr ""
 
-#: pntemplates/plugins/function.mailstatus.php:33
-msgid "waiting for delivery"
+#: pnversion.php:15
+msgid ""
+"Advanced Mailer management: This module gives more functionallity to the "
+"regular zikula Mailer module"
 msgstr ""
 
-#: pntemplates/plugins/function.mailstatus.php:35
-msgid "failed... waiting for retry"
+#: pninit.php:22
+msgid "Error creating hook"
 msgstr ""
 
-#: pntemplates/plugins/function.mailstatus.php:37
-msgid "failed... waiting for last try"
+#: pninit.php:36
+msgid "Error! Index creation failed."
+msgstr ""
+
+#: pninit.php:46
+msgid ""
+"Please take care to update the email tempaltes for html and text mails. "
+"Otherwise you will add default header and footer for all mails that are sent "
+"out from now on!"
+msgstr ""
+
+#: pninit.php:89
+msgid "Error deleting hook"
+msgstr ""
+
+#: pnadminapi.php:23 pnadminapi.php:28
+#: pntemplates/advmailer_admin_templates.htm:5
+#: pntemplates/advmailer_admin_errorlog.htm:5
+#: pntemplates/advmailer_admin_modifyconfig.htm:5
+#: pntemplates/advmailer_admin_modifyconfig.htm:6
+#: pntemplates/advmailer_admin_queue.htm:5
+msgid "Settings"
+msgstr ""
+
+#: pnadminapi.php:24 pntemplates/advmailer_admin_templates.htm:6
+#: pntemplates/advmailer_admin_queue.htm:37
+msgid "Templates"
+msgstr ""
+
+#: pnadminapi.php:25
+msgid "Mail-Queue"
+msgstr ""
+
+#: pnadminapi.php:26
+msgid "Error-log"
+msgstr ""
+
+#: pnadminapi.php:27
+msgid "Test configuration"
+msgstr ""
+
+#: pnadminapi.php:173
+msgid "Message was moved to error log - delivery cancelled"
 msgstr ""
 
 #: pnuser.php:25
@@ -150,60 +155,127 @@ msgstr ""
 msgid "Wrong password"
 msgstr ""
 
-#: pnadminapi.php:23 pnadminapi.php:28
-#: pntemplates/advmailer_admin_errorlog.htm:5
-#: pntemplates/advmailer_admin_queue.htm:5
-#: pntemplates/advmailer_admin_templates.htm:5
-#: pntemplates/advmailer_admin_modifyconfig.htm:5
-#: pntemplates/advmailer_admin_modifyconfig.htm:6
-msgid "Settings"
+#: pntemplates/plugins/function.mailstatus.php:33
+msgid "waiting for delivery"
 msgstr ""
 
-#: pnadminapi.php:24 pntemplates/advmailer_admin_queue.htm:37
-#: pntemplates/advmailer_admin_templates.htm:6
-msgid "Templates"
+#: pntemplates/plugins/function.mailstatus.php:35
+msgid "failed... waiting for retry"
 msgstr ""
 
-#: pnadminapi.php:25
-msgid "Mail-Queue"
+#: pntemplates/plugins/function.mailstatus.php:37
+msgid "failed... waiting for last try"
 msgstr ""
 
-#: pnadminapi.php:26
-msgid "Error-log"
+#: pntemplates/plugins/function.showmail.php:23
+#: pntemplates/plugins/function.extractmail.php:24
+msgid "param mail missing"
 msgstr ""
 
-#: pnadminapi.php:27
-msgid "Test configuration"
+#: pntemplates/plugins/function.extractmail.php:29
+msgid "item not found"
 msgstr ""
 
-#: pnadminapi.php:174
-msgid "Message was moved to error log - delivery cancelled"
+#: pntemplates/plugins/function.templateusage.php:29
+msgid "No"
 msgstr ""
 
-#: pninit.php:22
-msgid "Error creating hook"
+#: pntemplates/plugins/function.templateusage.php:31
+msgid "Yes"
 msgstr ""
 
-#: pninit.php:36
-msgid "Error! Index creation failed."
-msgstr ""
-
-#: pninit.php:84
-msgid "Error deleting hook"
-msgstr ""
-
-#: pnversion.php:13
-msgid "Advanced Mailer"
-msgstr ""
-
-#: pnversion.php:14
-msgid "advmailer"
-msgstr ""
-
-#: pnversion.php:15
+#: pnadmin.php:45
 msgid ""
-"Advanced Mailer management: This module gives more functionallity to the "
-"regular zikula Mailer module"
+"This is <font color=\"red\">some default text</font> that will be "
+"<b>replaced</b> by your <i>email's content</i> later whenever a mail is "
+"being sent out!<hr />Have fun! ;-)"
+msgstr ""
+
+#: pnadmin.php:46
+msgid ""
+"This is some default text that will be replaced by your email's content "
+"later whenever a mail is being sent out!"
+msgstr ""
+
+#: pnadmin.php:122
+msgid "Send mails immediately"
+msgstr ""
+
+#: pnadmin.php:123
+msgid "Send mails via cronjob"
+msgstr ""
+
+#: pnadmin.php:124
+msgid "Send mails in background using SystemInit hooks"
+msgstr ""
+
+#: pnadmin.php:177
+msgid "Done! Module configuration updated."
+msgstr ""
+
+#: pntemplates/advmailer_admin_templates.htm:8
+msgid ""
+"You can create templates for all emails that will be sent out that are "
+"customized for your site. There are two types of emails going out: HTML and "
+"plain text. There are some example templates in the Mailer's template "
+"folder. There are four templates - two for HTML and two for plain text "
+"mails. Always the right template is chosen - depending on the mail type. The "
+"templates have to be named the following way"
+msgstr ""
+
+#: pntemplates/advmailer_admin_templates.htm:10
+msgid "Header for plain text mails"
+msgstr ""
+
+#: pntemplates/advmailer_admin_templates.htm:11
+msgid "Footer for plain text mails"
+msgstr ""
+
+#: pntemplates/advmailer_admin_templates.htm:12
+msgid "Header for HTML mails"
+msgstr ""
+
+#: pntemplates/advmailer_admin_templates.htm:13
+msgid "Footer for HTML mails"
+msgstr ""
+
+#: pntemplates/advmailer_admin_templates.htm:17
+msgid ""
+"Module developers can override the usage of these templates - if you are a "
+"developer, please read the function's documentation! Pleas also mention that "
+"template changes will not affect all mails that are already in the mail "
+"queue and waiting for delivery!"
+msgstr ""
+
+#: pntemplates/advmailer_admin_templates.htm:20
+msgid "Preview"
+msgstr ""
+
+#: pntemplates/advmailer_admin_templates.htm:21
+msgid ""
+"Please use theme based template overriding and clear your rendering cache "
+"after changing the templates. The templates will be used as they are seen "
+"below."
+msgstr ""
+
+#: pntemplates/advmailer_admin_templates.htm:23
+msgid "Preview for plain text mails"
+msgstr ""
+
+#: pntemplates/advmailer_admin_templates.htm:29
+#: pntemplates/advmailer_admin_templates.htm:38
+msgid "No templates found"
+msgstr ""
+
+#: pntemplates/advmailer_admin_templates.htm:31
+msgid ""
+"Depending on your personal site mailer configuration linebreaks will be "
+"added before sending the email. These linebreaks can not be seen here - "
+"please send a test email to an own email account for testing this."
+msgstr ""
+
+#: pntemplates/advmailer_admin_templates.htm:32
+msgid "Preview for html mails"
 msgstr ""
 
 #: pntemplates/advmailer_admin_errorlog.htm:6
@@ -272,110 +344,6 @@ msgstr ""
 msgid "No mails stored in the error logfile"
 msgstr ""
 
-#: pntemplates/advmailer_admin_queue.htm:6
-msgid "Mail queue view and administration"
-msgstr ""
-
-#: pntemplates/advmailer_admin_queue.htm:6
-msgid "mails in queue"
-msgstr ""
-
-#: pntemplates/advmailer_admin_queue.htm:20
-msgid ""
-"Here all mails from the mail queue are listed. Please do not forget that "
-"mails might be sent instantly after they were listed here. You can access "
-"the mail if you click on the title."
-msgstr ""
-
-#: pntemplates/advmailer_admin_queue.htm:33
-msgid "priority"
-msgstr ""
-
-#: pntemplates/advmailer_admin_queue.htm:40
-msgid "planed date"
-msgstr ""
-
-#: pntemplates/advmailer_admin_queue.htm:44
-msgid "status"
-msgstr ""
-
-#: pntemplates/advmailer_admin_queue.htm:61
-msgid "now"
-msgstr ""
-
-#: pntemplates/advmailer_admin_queue.htm:73
-msgid "send manually"
-msgstr ""
-
-#: pntemplates/advmailer_admin_queue.htm:83
-msgid "Mail queue emtpy - nothing to display"
-msgstr ""
-
-#: pntemplates/advmailer_admin_templates.htm:8
-msgid ""
-"You can create templates for all emails that will be sent out that are "
-"customized for your site. There are two types of emails going out: HTML and "
-"plain text. There are some example templates in the Mailer's template "
-"folder. There are four templates - two for HTML and two for plain text "
-"mails. Always the right template is chosen - depending on the mail type. The "
-"templates have to be named the following way"
-msgstr ""
-
-#: pntemplates/advmailer_admin_templates.htm:10
-msgid "Header for plain text mails"
-msgstr ""
-
-#: pntemplates/advmailer_admin_templates.htm:11
-msgid "Footer for plain text mails"
-msgstr ""
-
-#: pntemplates/advmailer_admin_templates.htm:12
-msgid "Header for HTML mails"
-msgstr ""
-
-#: pntemplates/advmailer_admin_templates.htm:13
-msgid "Footer for HTML mails"
-msgstr ""
-
-#: pntemplates/advmailer_admin_templates.htm:17
-msgid ""
-"Module developers can override the usage of these templates - if you are a "
-"developer, please read the function's documentation! Pleas also mention that "
-"template changes will not affect all mails that are already in the mail "
-"queue and waiting for delivery!"
-msgstr ""
-
-#: pntemplates/advmailer_admin_templates.htm:20
-msgid "Preview"
-msgstr ""
-
-#: pntemplates/advmailer_admin_templates.htm:21
-msgid ""
-"Please use theme based template overriding and clear your rendering cache "
-"after changing the templates. The templates will be used as they are seen "
-"below."
-msgstr ""
-
-#: pntemplates/advmailer_admin_templates.htm:23
-msgid "Preview for plain text mails"
-msgstr ""
-
-#: pntemplates/advmailer_admin_templates.htm:29
-#: pntemplates/advmailer_admin_templates.htm:38
-msgid "No templates found"
-msgstr ""
-
-#: pntemplates/advmailer_admin_templates.htm:31
-msgid ""
-"Depending on your personal site mailer configuration linebreaks will be "
-"added before sending the email. These linebreaks can not be seen here - "
-"please send a test email to an own email account for testing this."
-msgstr ""
-
-#: pntemplates/advmailer_admin_templates.htm:32
-msgid "Preview for html mails"
-msgstr ""
-
 #: pntemplates/advmailer_admin_modifyconfig.htm:11
 msgid "Advanced Mailer settings"
 msgstr ""
@@ -423,6 +391,45 @@ msgstr ""
 
 #: pntemplates/advmailer_admin_modifyconfig.htm:39
 msgid "Cancel"
+msgstr ""
+
+#: pntemplates/advmailer_admin_queue.htm:6
+msgid "Mail queue view and administration"
+msgstr ""
+
+#: pntemplates/advmailer_admin_queue.htm:6
+msgid "mails in queue"
+msgstr ""
+
+#: pntemplates/advmailer_admin_queue.htm:20
+msgid ""
+"Here all mails from the mail queue are listed. Please do not forget that "
+"mails might be sent instantly after they were listed here. You can access "
+"the mail if you click on the title."
+msgstr ""
+
+#: pntemplates/advmailer_admin_queue.htm:33
+msgid "priority"
+msgstr ""
+
+#: pntemplates/advmailer_admin_queue.htm:40
+msgid "planed date"
+msgstr ""
+
+#: pntemplates/advmailer_admin_queue.htm:44
+msgid "status"
+msgstr ""
+
+#: pntemplates/advmailer_admin_queue.htm:61
+msgid "now"
+msgstr ""
+
+#: pntemplates/advmailer_admin_queue.htm:73
+msgid "send manually"
+msgstr ""
+
+#: pntemplates/advmailer_admin_queue.htm:83
+msgid "Mail queue emtpy - nothing to display"
 msgstr ""
 
 #: pntemplates/advmailer_admin_menu.htm:4
