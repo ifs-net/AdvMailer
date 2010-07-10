@@ -19,7 +19,7 @@ $modversion['help']           = 'pndocs/help.txt';
 $modversion['changelog']      = 'pndocs/changelog.txt';
 $modversion['license']        = 'pndocs/license.txt';
 $modversion['official']       = 1;
-$modversion['author']         = 'Florian SchieÃŸl';
+$modversion['author']         = 'Florian Schießl';
 $modversion['contact']        = 'http://www.ifs-net.de';
 $modversion['securityschema'] = array('advMailer::' => '::');
 
