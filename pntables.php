@@ -40,7 +40,7 @@ function advMailer_pntables()
     			'try'        => "I(1) NOTNULL DEFAULT 0",
     			'priority'   => "I(1) NOTNULL DEFAULT 5",
     			'date'       => "T NOTNULL DEFAULT 0",
-    			'content'    => "XL NOTNULL'"
+    			'content'    => "B NOTNULL'"
     			);
     // Table for error log
     $table['advmailer_errorlog_column'] = array (
@@ -53,7 +53,7 @@ function advMailer_pntables()
     			'id'         => "I PRIMARY",
     			'priority'   => "I(1) NOTNULL DEFAULT 5",
     			'date'       => "T NOTNULL DEFAULT 0",
-    			'content'    => "XL NOTNULL'"
+    			'content'    => "B NOTNULL'"
     			);
 
 	// Return table information
