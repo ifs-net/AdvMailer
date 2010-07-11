@@ -208,7 +208,9 @@ function advMailer_adminapi_sendQueue($args)
                     // We don't want to see any messages.. The user does not know that he is sending mails ;-)
                     $mail['quiet'] = 1;
                     // Call function recursively
-                    if ($mail['id'] > 0) {
+                    if (    ($mail['id'] > 0) &&
+                            (strtotime($mail['date']) <= time()) 
+                        ) {
                         advMailer_adminapi_sendQueue($mail);
                     } else {
                         return false;
